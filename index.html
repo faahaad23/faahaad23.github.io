@@ -1500,6 +1500,108 @@
 .photo-wall-twelve .collage-tile{border:1px solid rgba(255,121,80,.22);border-radius:7px;min-height:0}
 @media(max-width:760px){.photo-wall.photo-wall-twelve{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(6,minmax(78px,22vw));grid-template-areas:"a a b b" "a a c d" "e f f d" "g h h i" "j h h k" "j l l l";gap:6px}}
 
+
+/* MOBILE HERO REFINEMENT — profile photo first, smaller and balanced */
+@media (max-width: 650px) {
+    .hero { min-height: auto !important; padding: 104px 0 48px !important; display: block !important; }
+    .hero-grid { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 25px !important; }
+    .hero-photo { order: -1 !important; width: min(48vw, 178px) !important; max-width: 178px !important; margin: 0 auto !important; }
+    .hero-photo .photo-placeholder { width: 100% !important; aspect-ratio: 4 / 5 !important; height: auto !important; overflow: hidden !important; border-radius: 18px !important; background: #241916 !important; border: 1px solid rgba(255, 126, 82, .38) !important; box-shadow: 0 12px 34px rgba(0, 0, 0, .28) !important; }
+    .hero-photo .photo-placeholder::before { inset: 8px !important; border-color: rgba(255, 155, 112, .45) !important; border-radius: 11px !important; }
+    .hero-photo .photo-placeholder img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center 25% !important; display: block !important; }
+    .hero-grid > div:first-child { width: 100% !important; text-align: center !important; }
+    .hero .eyebrow { margin: 0 auto 16px !important; font-size: 9px !important; line-height: 1.7 !important; letter-spacing: .1em !important; max-width: 290px !important; }
+    .hero-title { font-size: clamp(38px, 10.8vw, 58px) !important; line-height: .98 !important; letter-spacing: -.065em !important; overflow-wrap: anywhere !important; }
+    .hero-description { margin: 20px auto 0 !important; max-width: 440px !important; font-size: 14px !important; line-height: 1.7 !important; text-align: center !important; }
+    .hero-actions { justify-content: center !important; gap: 9px !important; margin-top: 23px !important; }
+    .hero-actions .button { min-height: 42px !important; padding: 0 15px !important; font-size: 12px !important; }
+}
+@media (max-width: 380px) {
+    .hero-photo { width: 145px !important; max-width: 145px !important; }
+    .hero-grid { gap: 21px !important; }
+    .hero-title { font-size: clamp(35px, 10.5vw, 43px) !important; }
+}
+
+
+/* FINAL REFINEMENT: keep the existing theme, contain the profile image, deepen orange */
+:root { --accent-dark: #d97832; }
+.hero::before {
+    background: linear-gradient(112deg, rgba(255,48,58,.96) 0%, rgba(218,79,43,.94) 52%, rgba(190,91,39,.92) 100%) !important;
+}
+.cv-button { background: linear-gradient(110deg, #ff343c, #d97832) !important; }
+.photo-placeholder {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    isolation: isolate;
+}
+.hero-photo {
+    width: min(100%, 290px) !important;
+    max-width: 290px !important;
+    min-width: 0 !important;
+    justify-self: end;
+    margin-left: auto !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+}
+.hero-photo .photo-placeholder img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+    border-radius: inherit !important;
+}
+.hero-photo .photo-placeholder::before {
+    z-index: 2 !important;
+    pointer-events: none !important;
+    border-radius: 12px !important;
+    border-color: rgba(217,120,50,.55) !important;
+}
+/* Al Fahad uses the same deep dark tone as the primary heading */
+.hero-title .accent { color: #211815 !important; }
+@media (max-width: 650px) {
+    .hero-grid { min-width: 0 !important; }
+    .hero-photo {
+        width: min(44vw, 160px) !important;
+        max-width: 160px !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+        justify-self: center !important;
+        flex: 0 0 auto !important;
+    }
+    .hero-photo .photo-placeholder {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 4 / 5 !important;
+        border-radius: 16px !important;
+    }
+    .hero-photo .photo-placeholder img { object-fit: cover !important; border-radius: inherit !important; }
+}
+@media (max-width: 380px) {
+    .hero-photo { width: 138px !important; max-width: 138px !important; }
+}
+
+
+/* Leadership debate achievements — grouped under one main entry */
+#leadership .leadership-subpoints {
+    margin: 14px 0 0;
+    padding-left: 19px;
+    display: grid;
+    gap: 9px;
+    color: var(--text-secondary, #b8aaa2);
+    font-size: .94em;
+    line-height: 1.7;
+}
+#leadership .leadership-subpoints li { padding-left: 3px; }
+#leadership .leadership-subpoints li::marker { color: #9b4a35; }
+#leadership .leadership-subpoints strong { color: var(--text-primary, #f7f4f1); font-weight: 600; }
+
 </style>
 </head>
 
@@ -2472,66 +2574,20 @@
             </div>
 
             <div class="experience-item debate-career-item">
-                <div class="experience-date">DEBATE LEADERSHIP</div>
+                <div class="experience-date">DEBATE</div>
                 <div>
-                    <h3 class="experience-title">Executive Member → Vice President — Logistics</h3>
-                    <div class="experience-company">Primeasia University Debating Club (PAUDC)</div>
+                    <h3 class="experience-title">Debater, Debate Leader &amp; Judge</h3>
+                    <div class="experience-company">Primeasia University Debating Club (PAUDC) · Television &amp; National Competitions</div>
                     <p class="experience-description">
-                        Joined PAUDC as an Executive Member and progressed to Vice President of Logistics.
-                        Contributed to debate programme coordination, logistics and club activities, helping
-                        deliver televised debate programmes and support competitive debating initiatives.
+                        Built a sustained record in competitive debating, club leadership, televised debates and debate adjudication.
                     </p>
-                </div>
-            </div>
-
-            <div class="experience-item debate-career-item">
-                <div class="experience-date">TELEVISION</div>
-                <div>
-                    <h3 class="experience-title">ATN Bangla Televised Debates</h3>
-                    <div class="experience-company">Debater & Programme Organizer</div>
-                    <p class="experience-description">
-                        Helped organize approximately eight ATN Bangla televised debate programmes and
-                        participated in five televised debates. The CV screenshot records three debate wins.
-                        These experiences strengthened public speaking, argumentation, critical thinking,
-                        teamwork and performance in a televised debate setting.
-                    </p>
-                </div>
-            </div>
-
-            <div class="experience-item debate-career-item">
-                <div class="experience-date">2019 · WINNER</div>
-                <div>
-                    <h3 class="experience-title">Inter-Region Cantonment Debate Fest</h3>
-                    <div class="experience-company">Debate Competition · 2019</div>
-                    <p class="experience-description">
-                        Won the Inter-Region Cantonment Debate Fest 2019, demonstrating persuasive
-                        communication, structured argumentation and competitive debating skills.
-                    </p>
-                </div>
-            </div>
-
-            <div class="experience-item debate-career-item">
-                <div class="experience-date">2019 · WINNER</div>
-                <div>
-                    <h3 class="experience-title">DUDS Present National Debate Fest</h3>
-                    <div class="experience-company">National Debate Competition · 2019</div>
-                    <p class="experience-description">
-                        Won the DUDS Present National Debate Fest 2019, earning recognition in a
-                        national-level debating competition.
-                    </p>
-                </div>
-            </div>
-
-            <div class="experience-item debate-career-item">
-                <div class="experience-date">NEARLY 3 YEARS</div>
-                <div>
-                    <h3 class="experience-title">Debate Judge & National-Level Debater</h3>
-                    <div class="experience-company">National Debate Tournaments</div>
-                    <p class="experience-description">
-                        Participated in national debate tournaments and served as a debate judge for
-                        nearly three years, evaluating arguments and speakers while contributing to
-                        the wider debating community.
-                    </p>
+                    <ul class="leadership-subpoints">
+                        <li><strong>Club leadership:</strong> Progressed from Executive Member to Vice President (Logistics), supporting debate event coordination, logistics and club activities.</li>
+                        <li><strong>Televised debating:</strong> Participated in four ATN Bangla television debates, developing public speaking, structured argumentation and on-camera communication.</li>
+                        <li><strong>Competition achievements:</strong> Winner of the Inter-Region Cantonment Debate Fest (2019) and the DUDS Present National Debate Fest (2019).</li>
+                        <li><strong>Judging:</strong> Served as a debate judge for nearly three years, evaluating speakers and arguments in debate competitions.</li>
+                        <li><strong>Recognition and contribution:</strong> Represented Primeasia University in debate activities and contributed to the wider debating community through participation, organization and adjudication.</li>
+                    </ul>
                 </div>
             </div>
 
