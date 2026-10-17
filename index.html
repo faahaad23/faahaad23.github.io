@@ -22,13 +22,13 @@
         ========================================================= */
 
         :root {
-            --bg: #f4f3ef;
-            --surface: #ffffff;
-            --text: #111111;
-            --muted: #737373;
-            --line: #d9d8d3;
-            --accent: #3157ff;
-            --accent-dark: #1e3dc0;
+            --bg: #101010;
+            --surface: #1b1b1b;
+            --text: #f7f4f1;
+            --muted: #a7a09b;
+            --line: #34302e;
+            --accent: #ff593f;
+            --accent-dark: #ff8b4a;
 
             --max-width: 1280px;
         }
@@ -44,7 +44,7 @@
         }
 
         body {
-            background: var(--bg);
+            background: radial-gradient(ellipse at 10% 0%, rgba(255,65,57,.12), transparent 35%), var(--bg);
             color: var(--text);
             font-family: "Manrope", sans-serif;
             line-height: 1.6;
@@ -128,7 +128,7 @@
         .nav-links a {
             font-size: 12px;
             font-weight: 600;
-            color: #555;
+            color: #b9b1ac;
             transition: .25s ease;
         }
 
@@ -137,14 +137,14 @@
         }
 
         .nav-cta {
-            background: var(--text);
+            background: linear-gradient(110deg, #ff343c, #ff914d);
             color: white !important;
             padding: 11px 17px;
             border-radius: 50px;
         }
 
         .nav-cta:hover {
-            background: var(--accent);
+            background: linear-gradient(110deg, #ff343c, #ff914d);
         }
 
 
@@ -154,7 +154,7 @@
 
         .hero {
             min-height: 100vh;
-            padding: 170px 0 100px;
+            padding: 135px 0 68px;
 
             display: flex;
             align-items: center;
@@ -163,7 +163,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1.45fr .55fr;
-            gap: 80px;
+            gap: 54px;
             align-items: center;
         }
 
@@ -194,7 +194,7 @@
 
             font-size: 18px;
             line-height: 1.75;
-            color: #5f5f5f;
+            color: #c0b9b4;
         }
 
         .hero-actions {
@@ -462,6 +462,35 @@
             box-shadow: 0 25px 60px rgba(0,0,0,.07);
         }
 
+        .project-doodle {
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 8px 0 4px;
+            color: var(--accent);
+            opacity: .88;
+        }
+
+        .project-doodle svg {
+            width: 108px;
+            height: 72px;
+            overflow: visible;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .project:hover .project-doodle {
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        .project-doodle { transition: .3s ease; }
+
         .project-number {
             font-family: "DM Mono", monospace;
             font-size: 10px;
@@ -505,8 +534,8 @@
         ========================================================= */
 
         .research-card {
-            background: var(--text);
-            color: white;
+            background: linear-gradient(135deg, #241613 0%, #171515 58%, #241310 100%);
+            color: var(--text);
             padding: clamp(35px, 7vw, 80px);
             position: relative;
             overflow: hidden;
@@ -776,6 +805,28 @@
             min-width: 0;
         }
 
+        /* Four reference layouts combined into one responsive photo wall */
+        .photo-collage { background:#11110f; padding:clamp(12px,2.2vw,28px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(12px,2vw,24px); color:#f3f1ec; }
+        .collage-panel { position:relative; min-width:0; aspect-ratio:1/1.08; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); grid-template-rows:repeat(7,minmax(0,1fr)); gap:5px; overflow:hidden; }
+        .collage-tile { position:relative; display:block; min-width:0; min-height:0; overflow:hidden; border-radius:9px; background:#282826; }
+        .collage-tile img { width:100%; height:100%; display:block; object-fit:cover; filter:grayscale(100%); transition:transform .5s ease,filter .35s ease; }
+        .collage-tile:hover img { filter:grayscale(0%); transform:scale(1.05); }
+        .collage-tile::after { content:attr(data-label); position:absolute; left:7px; bottom:7px; padding:4px 6px; background:rgba(0,0,0,.62); color:#fff; font:7px "DM Mono",monospace; opacity:0; transition:opacity .25s ease; }
+        .collage-tile:hover::after { opacity:1; }
+        .collage-panel.layout-one .tile-a { grid-area:1/1/5/4; } .collage-panel.layout-one .tile-b { grid-area:1/4/3/7; } .collage-panel.layout-one .tile-c { grid-area:3/4/5/7; } .collage-panel.layout-one .tile-d { grid-area:5/1/7/3; } .collage-panel.layout-one .tile-e { grid-area:5/3/8/7; } .collage-panel.layout-one .tile-f { grid-area:7/1/8/3; }
+        .collage-panel.layout-two .tile-a { grid-area:1/1/4/3; } .collage-panel.layout-two .tile-b { grid-area:1/3/3/7; } .collage-panel.layout-two .tile-c { grid-area:4/1/6/5; } .collage-panel.layout-two .tile-d { grid-area:3/5/5/7; } .collage-panel.layout-two .tile-e { grid-area:6/1/8/3; } .collage-panel.layout-two .tile-f { grid-area:5/3/8/7; }
+        .collage-panel.layout-three .tile-a { grid-area:1/1/4/3; } .collage-panel.layout-three .tile-b { grid-area:1/3/4/5; } .collage-panel.layout-three .tile-c { grid-area:1/5/3/7; } .collage-panel.layout-three .tile-d { grid-area:3/5/5/7; } .collage-panel.layout-three .tile-e { grid-area:4/1/6/5; } .collage-panel.layout-three .tile-f { grid-area:5/5/8/7; } .collage-panel.layout-three .tile-g { grid-area:6/1/8/5; }
+        .collage-panel.layout-four .tile-a { grid-area:1/1/4/4; } .collage-panel.layout-four .tile-b { grid-area:1/4/3/7; } .collage-panel.layout-four .tile-c { grid-area:3/4/5/7; } .collage-panel.layout-four .tile-d { grid-area:4/1/6/3; } .collage-panel.layout-four .tile-e { grid-area:4/3/6/7; } .collage-panel.layout-four .tile-f { grid-area:6/1/8/3; } .collage-panel.layout-four .tile-g { grid-area:6/3/8/7; }
+        .collage-orbit { position:absolute; z-index:3; width:clamp(64px,9vw,112px); aspect-ratio:1; border:clamp(5px,.75vw,8px) solid #11110f; border-radius:50%; background:#ededeb; overflow:hidden; pointer-events:none; }
+        .collage-orbit img { width:100%; height:100%; display:block; object-fit:cover; border-radius:50%; filter:grayscale(100%); }
+        .layout-one .orbit-one { top:28%; left:25%; } .layout-one .orbit-two { bottom:20%; left:18%; width:clamp(55px,7vw,86px); }
+        .layout-two .orbit-one { top:13%; right:17%; width:clamp(60px,7.5vw,92px); } .layout-two .orbit-two { top:45%; left:30%; }
+        .layout-three .orbit-one { top:26%; left:21%; } .layout-three .orbit-two { bottom:12%; right:26%; width:clamp(55px,7vw,86px); }
+        .layout-four .orbit-one { top:8%; left:31%; width:clamp(60px,7.5vw,92px); } .layout-four .orbit-two { bottom:20%; left:40%; }
+        .collage-caption { position:absolute; z-index:4; max-width:42%; color:#f4f1e9; font-size:clamp(7px,.8vw,10px); line-height:1.5; text-shadow:0 1px 6px rgba(0,0,0,.65); pointer-events:none; }
+        .collage-caption strong { display:block; margin-bottom:4px; font-family:Georgia,serif; font-size:clamp(11px,1.35vw,17px); font-style:italic; font-weight:400; }
+        .layout-two .caption-one { top:27%; right:1%; } .layout-three .caption-one { bottom:1%; left:2%; } .layout-four .caption-one { top:35%; right:1%; }
+
         .photo-masonry {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -887,7 +938,7 @@
             letter-spacing: .13em;
             text-transform: uppercase;
             margin-bottom: 16px;
-            color: #555;
+            color: #b9b1ac;
         }
 
         .photo-instagram-grid {
@@ -963,7 +1014,7 @@
             gap: 8px;
             font-family: "DM Mono", monospace;
             font-size: 8px;
-            color: #555;
+            color: #b9b1ac;
         }
 
         .photo-copyright {
@@ -1038,6 +1089,11 @@
                 margin: auto;
             }
 
+            .photo-collage { gap:10px; padding:10px; }
+            .collage-panel { gap:3px; aspect-ratio:1/1.2; }
+            .collage-orbit { width:58px; border-width:5px; }
+            .layout-one .orbit-two, .layout-two .orbit-one, .layout-three .orbit-two, .layout-four .orbit-one { width:48px; }
+            .collage-caption { display:none; }
             .photo-masonry {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1241,7 +1297,7 @@
             }
 
             section {
-                padding: 90px 0;
+                padding: 64px 0;
             }
 
             .about-grid {
@@ -1317,7 +1373,134 @@
             }
         }
 
-    </style>
+
+        /* Warm editorial portfolio theme */
+        .hero { position: relative; isolation: isolate; }
+        .hero::before { content:""; position:absolute; z-index:-1; inset:0 0 8% 0; background:linear-gradient(112deg,rgba(255,48,58,.96) 0%,rgba(255,103,62,.92) 52%,rgba(255,151,76,.88) 100%); border-radius:0 0 34px 34px; }
+        .hero .eyebrow,.hero .hero-description { color:rgba(255,255,255,.88); }
+        .hero-title .accent { color:#fff; }
+        .hero .button.dark { background:#171717; border-color:#171717; color:#fff; }
+        .hero .button.light { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.6); }
+        .hero-photo img { border-radius:22px; box-shadow:0 25px 70px rgba(0,0,0,.28); }
+        .nav { background:rgba(17,17,17,.82); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(18px); }
+        .project,.skill-card,.research-card,.education-item,.experience-item { border-color:#34302e; }
+        .button:hover,.project:hover { box-shadow:0 12px 35px rgba(255,82,62,.16); }
+        .cv-button { background:linear-gradient(110deg,#ff343c,#ff914d)!important; color:#fff!important; border-color:transparent!important; }
+        .section-title .accent, .section-number { color:#ff7950; }
+        .photo-collage { border:1px solid #292523; border-radius:20px; overflow:hidden; }
+        .collage-tile { cursor:zoom-in; }
+        .collage-tile:focus-visible { outline:3px solid #ff7950; outline-offset:3px; }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+
+
+
+        /* THEME POLISH: unify pale sections with the ember / charcoal palette */
+        .nav {
+            background: rgba(24, 21, 20, .88) !important;
+            border-color: rgba(255, 121, 80, .24) !important;
+            box-shadow: 0 12px 38px rgba(0,0,0,.24) !important;
+        }
+        .nav-links a { color: #d3c8c2; }
+        .nav-links a:hover { color: #ff9a72; }
+        .brand span { color: #b5a7a0; }
+        .tag { border-color: #51413b; color: #d4c5bd; background: rgba(255,121,80,.055); }
+        .research-card {
+            background: linear-gradient(135deg, #291714 0%, #1b1716 54%, #302019 100%);
+            color: #f7f1ed;
+            border: 1px solid rgba(255,121,80,.3);
+            border-radius: 22px;
+            box-shadow: 0 24px 70px rgba(0,0,0,.2);
+        }
+        .research-label, .research-meta-item small { color: #ff9a72; }
+        .research-description { color: #d1c2bb; }
+        .research-meta-item { border-top-color: rgba(255,154,114,.32); }
+        .research-meta-item strong { color: #fff5ef; }
+        #photography {
+            background: radial-gradient(ellipse at 90% 0%, rgba(255,89,63,.14), transparent 38%), #121110;
+            color: #f7f4f1;
+            padding-top: 76px;
+            padding-bottom: 42px;
+        }
+        .photo-sidebar {
+            background: linear-gradient(160deg, #211b19, #171514);
+            border: 1px solid #40302b;
+            border-radius: 16px;
+            color: #f7f4f1;
+        }
+        .photo-sidebar-subtitle { color: #ff9a72; }
+        .photo-sidebar-copy { color: #bdb0a9; }
+        .photo-sidebar-button { background: linear-gradient(110deg,#ff343c,#ff914d); border-radius: 3px; }
+        .photo-sidebar-social { color: #c8b8b0; }
+        .photo-sidebar-profile img { background: #302522; border-radius: 8px; }
+        .photo-gallery-heading p { color: #b9aaa2; }
+        .photo-collage.photo-wall {
+            background: linear-gradient(135deg, #241a17, #111110 65%);
+            border: 1px solid #44302a;
+            border-radius: 18px;
+            padding: clamp(10px, 1.6vw, 20px);
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(3, minmax(105px, 13vw));
+            grid-template-areas: "a a b c" "a a d e" "f g h i";
+            gap: 9px;
+            box-shadow: 0 24px 65px rgba(0,0,0,.25);
+        }
+        .photo-wall .collage-tile { border-radius: 7px; border: 1px solid rgba(255,121,80,.16); }
+        .photo-wall .tile-a { grid-area: a; }
+        .photo-wall .tile-b { grid-area: b; }
+        .photo-wall .tile-c { grid-area: c; }
+        .photo-wall .tile-d { grid-area: d; }
+        .photo-wall .tile-e { grid-area: e; }
+        .photo-wall .tile-f { grid-area: f; }
+        .photo-wall .tile-g { grid-area: g; }
+        .photo-wall .tile-h { grid-area: h; }
+        .photo-wall .tile-i { grid-area: i; }
+        .photo-wall .collage-tile img { filter: grayscale(100%) brightness(.84); }
+        .photo-wall .collage-tile:hover img,
+        .photo-wall .collage-tile:focus-visible img { filter: grayscale(0%) brightness(1); transform: scale(1.055); }
+        .photo-wall .collage-tile:focus-visible { outline: 3px solid #ff7950; outline-offset: 2px; }
+        @media (max-width: 760px) {
+            #photography { padding-top: 58px; }
+            .photo-gallery-layout { grid-template-columns: 1fr; }
+            .photo-sidebar { position: relative; top: auto; min-height: auto; }
+            .photo-sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+            .photo-sidebar-profile { display: grid; grid-template-columns: 90px 1fr; gap: 10px; align-items: center; margin-top: 18px; }
+            .photo-sidebar-profile img { grid-row: span 2; aspect-ratio: 1; }
+            .photo-sidebar-copy { margin-top: 0; }
+            .photo-sidebar-button { margin-top: 0; }
+            .photo-collage.photo-wall {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-rows: repeat(4, minmax(88px, 27vw));
+                grid-template-areas: "a a b" "a a c" "d e f" "g h i";
+                gap: 6px;
+            }
+            .photo-gallery-heading { align-items: start; flex-direction: column; }
+            .photo-gallery-heading p { text-align: left; }
+        }
+
+    
+/* Final contact and photography palette correction */
+#contact.contact{background:linear-gradient(135deg,#241613 0%,#111110 65%,#29130f 100%)!important;color:#f7f4f1!important;padding-top:70px;padding-bottom:70px;overflow:hidden}
+#contact .section-number{color:#ff8b6a!important} #contact .section-title{color:#fff7f2!important}
+#contact .contact-copy{color:#c8b8b0!important} #contact .contact-links{border-top-color:#49312a!important}
+#contact .contact-link{color:#f7f4f1!important;border-bottom-color:#49312a!important;gap:16px;overflow-wrap:anywhere}
+#contact .contact-link span:last-child{color:#ff9a73!important} #contact .contact-link:hover{color:#ff593f!important}
+#photography{background:#171412!important;color:#f7f4f1!important}
+#photography .photo-sidebar{background:#211b18!important;color:#f7f4f1!important;border-color:#49342c!important}
+#photography .photo-sidebar a{color:#f7f4f1} #photography .photo-sidebar-subtitle,#photography .photo-sidebar-copy,#photography .photo-sidebar-social{color:#b8aaa2!important}
+#photography .photo-sidebar-button{background:linear-gradient(100deg,#ff493c,#ff8d4e)!important;color:#fff!important}
+#photography .photo-copyright{border-top-color:#49342c!important;color:#9c8d84!important}
+#photography .photo-about-footer{color:#f7f4f1!important} #photography .photo-about-footer-copy{color:#b8aaa2!important}
+#photography .photo-about-mark{border-color:#49342c!important} #photography .photo-about-mark span{color:#b8aaa2!important}
+#contact .section-header{margin-bottom:30px}
+@media(max-width:650px){#contact.contact{padding-top:55px;padding-bottom:55px}#contact .contact-grid{gap:25px}#contact .contact-link{align-items:flex-start;flex-direction:column;gap:5px}}
+/* Twelve-photo editorial wall */
+.photo-wall.photo-wall-twelve{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(6,minmax(75px,10vw));grid-template-areas:"a a a b b c" "a a a d d c" "e f f d d g" "e h h i i g" "j h h k l l" "j h h k l l";gap:9px}
+.photo-wall-twelve .tile-a{grid-area:a}.photo-wall-twelve .tile-b{grid-area:b}.photo-wall-twelve .tile-c{grid-area:c}.photo-wall-twelve .tile-d{grid-area:d}.photo-wall-twelve .tile-e{grid-area:e}.photo-wall-twelve .tile-f{grid-area:f}.photo-wall-twelve .tile-g{grid-area:g}.photo-wall-twelve .tile-h{grid-area:h}.photo-wall-twelve .tile-i{grid-area:i}.photo-wall-twelve .tile-j{grid-area:j}.photo-wall-twelve .tile-k{grid-area:k}.photo-wall-twelve .tile-l{grid-area:l}
+.photo-wall-twelve .collage-tile{border:1px solid rgba(255,121,80,.22);border-radius:7px;min-height:0}
+@media(max-width:760px){.photo-wall.photo-wall-twelve{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(6,minmax(78px,22vw));grid-template-areas:"a a b b" "a a c d" "e f f d" "g h h i" "j h h k" "j l l l";gap:6px}}
+
+</style>
 </head>
 
 
@@ -1397,6 +1580,10 @@
                         Explore Work
                     </a>
 
+                    <a href="Sharif_Abdulla_Al_Fahad_CV.pdf" class="button dark cv-button" download>
+                        Download My CV ↓
+                    </a>
+
                 </div>
 
             </div>
@@ -1404,13 +1591,13 @@
 
             <!-- PROFILE PHOTO
                  Put your file beside this HTML file and name it:
-                 profile02.JPG
+                 profile.JPG
             -->
 
             <div class="hero-photo">
 
                 <div class="photo-placeholder">
-                    <img src="profile02.JPG" alt="Sharif Abdulla Al Fahad">
+                    <img src="profile.JPG" alt="Sharif Abdulla Al Fahad">
                 </div>
 
             </div>
@@ -1707,6 +1894,8 @@
                         PROJECT / 01
                     </div>
 
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M8 62H102M17 62V39L30 29L43 39V62M22 47H27M34 47H39M55 62V19M49 27L55 19L61 27M72 62V34H94V62M77 41H89M77 49H89"/><circle cx="55" cy="12" r="5"/><path d="M68 12H85M80 7L85 12L80 17"/><path d="M7 15C13 10 19 10 25 15M10 21C14 18 18 18 22 21"/></svg></div>
+
                     <h3>
                         Urban Road Pollution Monitoring
                     </h3>
@@ -1740,6 +1929,8 @@
                         PROJECT / 02
                     </div>
 
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><rect x="12" y="8" width="60" height="42" rx="3"/><path d="M20 19H61M20 27H50M20 35H56M33 50V58M23 58H44"/><circle cx="79" cy="39" r="15"/><path d="M72 39L77 44L87 33M73 60H99M86 54V60"/></svg></div>
+
                     <h3>
                         Digital MIS Training & Support
                     </h3>
@@ -1771,6 +1962,8 @@
                     <div class="project-number">
                         PROJECT / 03
                     </div>
+
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M12 8V61H102"/><path d="M21 50L37 39L49 45L65 25L79 32L96 13"/><circle cx="37" cy="39" r="2.5"/><circle cx="49" cy="45" r="2.5"/><circle cx="65" cy="25" r="2.5"/><circle cx="79" cy="32" r="2.5"/><path d="M87 13H96V22M22 18H38M22 24H32"/></svg></div>
 
                     <h3>
                         Data-driven Analysis
@@ -1804,6 +1997,8 @@
                         PROJECT / 04
                     </div>
 
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><circle cx="34" cy="20" r="8"/><circle cx="76" cy="20" r="8"/><path d="M19 49C20 37 26 32 34 32S48 37 49 49M61 49C62 37 68 32 76 32S90 37 91 49"/><path d="M45 16L55 8L65 16M55 8V31M48 27L55 33L62 27M20 60H90"/></svg></div>
+
                     <h3>
                         Research Mentoring
                     </h3>
@@ -1835,6 +2030,8 @@
                         PROJECT / 05
                     </div>
 
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M39 38H70L66 61H43Z"/><path d="M55 38V21M55 31C41 31 34 23 34 13C47 13 55 20 55 31ZM55 26C56 14 66 8 78 10C77 22 67 28 55 26Z"/><path d="M16 48C10 40 17 35 17 29M24 48C18 40 25 35 25 29M81 46H99M90 37V55"/><path d="M42 65H67"/></svg></div>
+
                     <h3>
                         Automated Plant Watering System
                     </h3>
@@ -1863,6 +2060,8 @@
                     <div class="project-number">
                         PROJECT / 06
                     </div>
+
+                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M12 57C31 57 26 16 49 16S65 56 95 56"/><rect x="40" y="25" width="31" height="22" rx="4"/><circle cx="45" cy="49" r="5"/><circle cx="66" cy="49" r="5"/><circle cx="48" cy="33" r="2"/><circle cx="63" cy="33" r="2"/><path d="M55 25V16M50 16H60M48 9L55 4L62 9"/></svg></div>
 
                     <h3>
                         Line-Following Robot (LFR)
@@ -2206,6 +2405,23 @@
 
 
 <!-- =========================================================
+     PROFESSIONAL HIGHLIGHTS
+========================================================= -->
+<section id="highlights">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-number">07 / HIGHLIGHTS</div>
+            <div><h2 class="section-title">Professional<br><span class="accent">highlights.</span></h2></div>
+        </div>
+        <div class="projects-grid">
+            <article class="project"><div class="project-number">01</div><h3>Public-sector digitalisation</h3><p>Serving as an MIS System Trainer in the Village Court Management Information System (VCMIS) project, supporting training and practical system adoption in collaboration with UNDP and the Government of Bangladesh.</p></article>
+            <article class="project"><div class="project-number">02</div><h3>International conference research</h3><p>Research on IoT-based monitoring of noise, CO₂ and heat pollution in urban roads, selected for the 2nd Global Cleaner Production Conference 2026 in Sitges, Spain.</p></article>
+            <article class="project"><div class="project-number">03</div><h3>Leadership & communication</h3><p>Former General Secretary of the Primeasia University Sports Club, with additional experience in debating, event coordination, teamwork and public speaking.</p></article>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
      LEADERSHIP
 ========================================================= -->
 
@@ -2255,19 +2471,66 @@
                 </div>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-date">UNIVERSITY</div>
+            <div class="experience-item debate-career-item">
+                <div class="experience-date">DEBATE LEADERSHIP</div>
                 <div>
-                    <h3 class="experience-title">Vice President — Logistics</h3>
-                    <div class="experience-company">Primeasia University Debating Club</div>
+                    <h3 class="experience-title">Executive Member → Vice President — Logistics</h3>
+                    <div class="experience-company">Primeasia University Debating Club (PAUDC)</div>
                     <p class="experience-description">
-                        Started as an Executive Member and was later elected Vice President — Logistics.
+                        Joined PAUDC as an Executive Member and progressed to Vice President of Logistics.
+                        Contributed to debate programme coordination, logistics and club activities, helping
+                        deliver televised debate programmes and support competitive debating initiatives.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item debate-career-item">
+                <div class="experience-date">TELEVISION</div>
+                <div>
+                    <h3 class="experience-title">ATN Bangla Televised Debates</h3>
+                    <div class="experience-company">Debater & Programme Organizer</div>
+                    <p class="experience-description">
                         Helped organize approximately eight ATN Bangla televised debate programmes and
-                        participated in five televised debates, winning three. Also won the Inter-Region
-                        Cantonment Debate Fest 2019 and the DUDS Present National Debate Fest 2019.
+                        participated in five televised debates. The CV screenshot records three debate wins.
+                        These experiences strengthened public speaking, argumentation, critical thinking,
+                        teamwork and performance in a televised debate setting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item debate-career-item">
+                <div class="experience-date">2019 · WINNER</div>
+                <div>
+                    <h3 class="experience-title">Inter-Region Cantonment Debate Fest</h3>
+                    <div class="experience-company">Debate Competition · 2019</div>
+                    <p class="experience-description">
+                        Won the Inter-Region Cantonment Debate Fest 2019, demonstrating persuasive
+                        communication, structured argumentation and competitive debating skills.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item debate-career-item">
+                <div class="experience-date">2019 · WINNER</div>
+                <div>
+                    <h3 class="experience-title">DUDS Present National Debate Fest</h3>
+                    <div class="experience-company">National Debate Competition · 2019</div>
+                    <p class="experience-description">
+                        Won the DUDS Present National Debate Fest 2019, earning recognition in a
+                        national-level debating competition.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item debate-career-item">
+                <div class="experience-date">NEARLY 3 YEARS</div>
+                <div>
+                    <h3 class="experience-title">Debate Judge & National-Level Debater</h3>
+                    <div class="experience-company">National Debate Tournaments</div>
+                    <p class="experience-description">
                         Participated in national debate tournaments and served as a debate judge for
-                        nearly three years, contributing to debate organization, critical discussion and
-                        public speaking at university and national levels.
+                        nearly three years, evaluating arguments and speakers while contributing to
+                        the wider debating community.
                     </p>
                 </div>
             </div>
@@ -2362,10 +2625,10 @@
                     </nav>
 
                     <!-- PROFILE PHOTO
-                         Put profile02.jpg beside this HTML file.
+                         Put profile.JPG beside this HTML file.
                     -->
                     <div class="photo-sidebar-profile">
-                        <img src="profile02.JPG" alt="Sharif Abdulla Al Fahad">
+                        <img src="profile.JPG" alt="Sharif Abdulla Al Fahad">
 
                         <p class="photo-sidebar-copy">
                             A personal collection of portraits, places,
@@ -2424,145 +2687,24 @@
                         =====================================================
                     -->
 
-                    <div class="photo-masonry">
-
-
-                        <!-- COLUMN 1 -->
-                        <div class="photo-column">
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-01.JPG" alt="Photography 01">
-                                <span class="photo-frame-label">photography-01.JPG</span>
-                            </div>
-
-                            <div class="photo-frame portrait">
-                                <img src="photography-04.JPG" alt="Photography 04">
-                                <span class="photo-frame-label">photography-04.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-07.JPG" alt="Photography 07">
-                                <span class="photo-frame-label">photography-07.JPG</span>
-                            </div>
-
-                            <div class="photo-frame square">
-                                <img src="photography-10.JPG" alt="Photography 10">
-                                <span class="photo-frame-label">photography-10.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-13.JPG" alt="Photography 13">
-                                <span class="photo-frame-label">photography-13.JPG</span>
-                            </div>
-
-                        </div>
-
-
-                        <!-- COLUMN 2 -->
-                        <div class="photo-column">
-
-                            <div class="photo-frame portrait">
-                                <img src="photography-02.JPG" alt="Photography 02">
-                                <span class="photo-frame-label">photography-02.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-05.JPG" alt="Photography 05">
-                                <span class="photo-frame-label">photography-05.JPG</span>
-                            </div>
-
-                            <div class="photo-frame portrait">
-                                <img src="photography-08.JPG" alt="Photography 08">
-                                <span class="photo-frame-label">photography-08.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-11.JPG" alt="Photography 11">
-                                <span class="photo-frame-label">photography-11.JPG</span>
-                            </div>
-
-                            <div class="photo-frame square">
-                                <img src="photography-14.JPG" alt="Photography 14">
-                                <span class="photo-frame-label">photography-14.JPG</span>
-                            </div>
-
-                        </div>
-
-
-                        <!-- COLUMN 3 -->
-                        <div class="photo-column">
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-03.JPG" alt="Photography 03">
-                                <span class="photo-frame-label">photography-03.JPG</span>
-                            </div>
-
-                            <div class="photo-frame portrait">
-                                <img src="photography-06.JPG" alt="Photography 06">
-                                <span class="photo-frame-label">photography-06.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-09.JPG" alt="Photography 09">
-                                <span class="photo-frame-label">photography-09.JPG</span>
-                            </div>
-
-                            <div class="photo-frame portrait">
-                                <img src="photography-12.JPG" alt="Photography 12">
-                                <span class="photo-frame-label">photography-12.JPG</span>
-                            </div>
-
-                            <div class="photo-frame landscape">
-                                <img src="photography-15.JPG" alt="Photography 15">
-                                <span class="photo-frame-label">photography-15.JPG</span>
-                            </div>
-
-                        </div>
-
+                    <div class="photo-collage photo-wall photo-wall-twelve" aria-label="Twelve-photo editorial photography wall">
+                        <a class="collage-tile tile-a" href="photography-01.JPG" target="_blank" rel="noopener"><img src="photography-01.JPG" alt="Photography archive image 1" loading="lazy"></a>
+                        <a class="collage-tile tile-b" href="photography-02.JPG" target="_blank" rel="noopener"><img src="photography-02.JPG" alt="Photography archive image 2" loading="lazy"></a>
+                        <a class="collage-tile tile-c" href="photography-03.JPG" target="_blank" rel="noopener"><img src="photography-03.JPG" alt="Photography archive image 3" loading="lazy"></a>
+                        <a class="collage-tile tile-d" href="photography-04.JPG" target="_blank" rel="noopener"><img src="photography-04.JPG" alt="Photography archive image 4" loading="lazy"></a>
+                        <a class="collage-tile tile-e" href="photography-05.JPG" target="_blank" rel="noopener"><img src="photography-05.JPG" alt="Photography archive image 5" loading="lazy"></a>
+                        <a class="collage-tile tile-f" href="photography-06.JPG" target="_blank" rel="noopener"><img src="photography-06.JPG" alt="Photography archive image 6" loading="lazy"></a>
+                        <a class="collage-tile tile-g" href="photography-07.JPG" target="_blank" rel="noopener"><img src="photography-07.JPG" alt="Photography archive image 7" loading="lazy"></a>
+                        <a class="collage-tile tile-h" href="photography-08.JPG" target="_blank" rel="noopener"><img src="photography-08.JPG" alt="Photography archive image 8" loading="lazy"></a>
+                        <a class="collage-tile tile-i" href="photography-09.JPG" target="_blank" rel="noopener"><img src="photography-09.JPG" alt="Photography archive image 9" loading="lazy"></a>
+                        <a class="collage-tile tile-j" href="photography-10.JPG" target="_blank" rel="noopener"><img src="photography-10.JPG" alt="Photography archive image 10" loading="lazy"></a>
+                        <a class="collage-tile tile-k" href="photography-11.JPG" target="_blank" rel="noopener"><img src="photography-11.JPG" alt="Photography archive image 11" loading="lazy"></a>
+                        <a class="collage-tile tile-l" href="photography-12.JPG" target="_blank" rel="noopener"><img src="photography-12.JPG" alt="Photography archive image 12" loading="lazy"></a>
                     </div>
 
                 </div>
 
             </div>
-
-
-            <!-- INSTAGRAM-STYLE PHOTO STRIP -->
-            <div class="photo-instagram">
-
-                <div class="photo-instagram-title">
-                    Selected frames / visual archive
-                </div>
-
-                <div class="photo-instagram-grid">
-
-                    <a href="#photography">
-                        <img src="photography-02.JPG" alt="Photography thumbnail 02">
-                    </a>
-
-                    <a href="#photography">
-                        <img src="photography-05.JPG" alt="Photography thumbnail 05">
-                    </a>
-
-                    <a href="#photography">
-                        <img src="photography-08.JPG" alt="Photography thumbnail 08">
-                    </a>
-
-                    <a href="#photography">
-                        <img src="photography-11.JPG" alt="Photography thumbnail 11">
-                    </a>
-
-                    <a href="#photography">
-                        <img src="photography-13.JPG" alt="Photography thumbnail 13">
-                    </a>
-
-                    <a href="#photography">
-                        <img src="photography-15.JPG" alt="Photography thumbnail 15">
-                    </a>
-
-                </div>
-
-            </div>
-
 
             <!-- PHOTOGRAPHY FOOTER -->
             <div class="photo-about-footer">
