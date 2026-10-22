@@ -1,35 +1,38 @@
-# Sharif Abdulla Al Fahad — Portfolio Upgrade
+# Fahad Portfolio — Bordo, Green & Cream Edition
 
-A plain HTML, CSS and JavaScript refresh of the existing portfolio. No build tools or framework are required.
+This is an updated version of the existing portfolio, using the Bordo (`#6C151E`), Deep Green (`#0F3D3A`), and Cream (`#F5DABF`) palette. It uses plain HTML, CSS and JavaScript; no framework or build tools are required.
 
 ## Files
-- `index.html` — content and page sections
-- `style.css` — visual design, responsive layout, and animation styles
-- `script.js` — mobile navigation, scroll reveals, project case-study toggles, and photography lightbox
+- `index.html` — content and section structure.
+- `style.css` — colors, layout, responsive rules, and motion.
+- `script.js` — mobile navigation, scroll reveals, expandable project case studies, and photo lightbox.
+- Your existing image files — keep these alongside `index.html`.
 
 ## Add your images
-Keep the existing image names in the same folder as `index.html` for this version:
+Keep your current filenames in the same directory as `index.html`:
 - `profile.jpg`
 - `photography-01.JPG` through `photography-15.JPG`
 
-Image names are case-sensitive on GitHub Pages. For example, `photography-01.JPG` is different from `photography-01.jpg`. If your repository stores images in a folder, update each matching `src` in `index.html`.
-
-## Customize
-1. Open `style.css` and change the CSS variables near the top to adjust colors. The electric-lime accent is `--accent: #c6f36b`.
-2. Edit text and links in `index.html`. Replace placeholder or generic project links only with real repository/demo URLs.
-3. In `script.js`, update the `caseStudies` entries with verified project details and outcomes.
-4. If you do not have a CV file in the repository, check any CV download link before publishing.
+Filenames are case-sensitive on GitHub Pages. If a photo does not load, compare its exact spelling and capitalization with the `src` attribute in `index.html`.
 
 ## Preview locally
-Open `index.html` in a browser. For a closer local website preview, use VS Code's Live Server extension, or run a local static server. No compilation is needed.
+1. Download/extract this folder.
+2. Keep the image files in the same folder.
+3. Open `index.html` in your browser.
 
 ## Publish with GitHub Pages
-1. Upload `index.html`, `style.css`, and `script.js` to the root of the existing repository (or merge them into the current site files).
-2. Upload the image files with their exact names.
-3. In GitHub, open **Settings → Pages** and select the correct branch and folder (usually `main` and `/ (root)`).
-4. Wait for the deployment to finish, then open the Pages URL and test mobile navigation, image loading, and contact links.
+1. Back up the current repository first.
+2. Upload `index.html`, `style.css`, and `script.js` to the repository folder currently used by GitHub Pages (often the repository root).
+3. Keep the existing image assets in that same folder.
+4. Commit the changes and wait for GitHub Pages to rebuild.
+5. Open the live site and hard-refresh if the browser shows cached CSS.
+
+## Customize the orange
+In `style.css`, find `:root` near the top. The main accent is `--accent: #B84A16;`. For a darker orange, try `#A84313`; for a warmer copper, try `#A94F2A`. Keep the accent dark enough for readable text.
 
 ## Notes
-- This is a static portfolio. A contact form needs a separate form service or backend to submit messages.
-- The case-study notes are editable prompts, not claimed metrics or publication results. Replace them with accurate details before sharing publicly.
-- Reduced-motion preferences are respected.
+- All original sections and existing content are retained from the supplied HTML file.
+- The project case-study text is starter copy; update it to reflect your actual contribution and verified results.
+- The LinkedIn link is unchanged because a specific profile URL was not supplied. The GitHub link points to `https://github.com/faahaad23`.
+- The photography viewer supports click/tap, keyboard arrows, and Escape.
+- Motion respects `prefers-reduced-motion`.

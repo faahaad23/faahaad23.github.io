@@ -1,137 +1,123 @@
-/*
-  Portfolio interactions: no framework required.
-  Beginner note: each feature is kept small and separate so you can edit it later.
-*/
+/* Portfolio interactions — plain JavaScript, no framework required. */
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile navigation menu
-  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
-  if (menuButton && navLinks) {
-    menuButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-      menuButton.textContent = isOpen ? '×' : '☰';
-    });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('is-open');
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open navigation menu');
-      menuButton.textContent = '☰';
-    }));
-  }
 
-  // Scroll reveals. Content remains visible if IntersectionObserver isn't available.
-  const revealTargets = document.querySelectorAll('main section, .project, .experience-item, .skill-card, .photo-frame');
-  revealTargets.forEach((item, index) => {
-    item.classList.add('js-reveal');
-    item.style.transitionDelay = `${(index % 4) * 55}ms`;
+  const closeMenu = () => {
+    if (!navToggle || !navLinks) return;
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open navigation menu');
+    navToggle.textContent = '☰';
+  };
+
+  navToggle?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    navToggle.textContent = open ? '×' : '☰';
   });
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver((entries, activeObserver) => {
+  navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+
+  const updateNav = () => nav?.classList.toggle('scrolled', window.scrollY > 20);
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  // Reveal sections as they enter the viewport; keep all content visible if unsupported.
+  const revealTargets = document.querySelectorAll('main section, .project, .experience-item, .education-item, .skill-card, .research-card, .photo-frame');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          activeObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
-    revealTargets.forEach(item => observer.observe(item));
-  } else {
-    revealTargets.forEach(item => item.classList.add('is-visible'));
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    revealTargets.forEach(element => element.classList.add('reveal'));
+    revealTargets.forEach(element => observer.observe(element));
   }
 
-  // Expandable case-study notes on the existing project cards.
+  // Expandable project case-study summaries.
   const caseStudies = [
-    {
-      title: 'Urban Road Pollution Monitoring',
-      summary: 'Case study focus',
-      detail: 'Problem: fixed or expensive monitoring can leave gaps in street-level environmental information. Approach: explore an IoT workflow for collecting noise, CO₂ and temperature readings across selected Dhaka roads, then analyze the time-series data. Next step: add validated results, system diagrams and repository/demo links when they are ready.'
-    },
-    {
-      title: 'Digital MIS Training & Support',
-      summary: 'Case study focus',
-      detail: 'Focus: explain digital workflows clearly, support users with system tasks and help people adopt MIS tools. Add the exact platform names, training materials and measurable outcomes here when you have them.'
-    },
-    {
-      title: 'Data-driven Analysis',
-      summary: 'Case study focus',
-      detail: 'Focus: prepare data, explore patterns, compare analytical approaches and communicate findings through clear visualizations. Add the dataset, evaluation metrics and verified results for each published analysis.'
-    },
-    {
-      title: 'Research Mentoring',
-      summary: 'Case study focus',
-      detail: 'Focus: support research planning, technical implementation and academic project development. Add a specific example, your role and any public output before presenting this as a completed case study.'
-    }
+    'Goal: explore an affordable way to collect road-side noise, CO₂ and temperature readings. Approach: combine IoT sensors, timestamped data collection and analysis-ready CSV records. Next steps can include validation, visualization and carefully evaluated time-series models.',
+    'Goal: help users understand MIS workflows. Work can include structured demonstrations, user guidance, troubleshooting and feedback to make system use clearer and more consistent.',
+    'Goal: turn raw data into understandable findings. Typical workflow: inspect and clean data, explore patterns, visualize important relationships and compare suitable analytical approaches.',
+    'Goal: support research ideas from planning through implementation. Activities can include defining the problem, reviewing relevant work, organizing experiments and communicating technical findings.'
   ];
-  document.querySelectorAll('.project').forEach(card => {
-    const title = card.querySelector('h3')?.textContent.trim();
-    const item = caseStudies.find(entry => entry.title === title);
-    if (!item || card.querySelector('.project-details')) return;
-    const details = document.createElement('details');
+  document.querySelectorAll('.project').forEach((card, index) => {
+    const button = document.createElement('button');
+    button.className = 'project-more';
+    button.type = 'button';
+    button.textContent = 'Explore case study +';
+    button.setAttribute('aria-expanded', 'false');
+    const details = document.createElement('div');
     details.className = 'project-details';
-    const summary = document.createElement('summary');
-    summary.textContent = item.summary;
-    const paragraph = document.createElement('p');
-    paragraph.textContent = item.detail;
-    details.append(summary, paragraph);
-    card.append(details);
+    details.textContent = caseStudies[index] || 'Add the project goal, your role, the approach, tools used and outcomes here.';
+    card.append(button, details);
+    button.addEventListener('click', () => {
+      const expanded = card.classList.toggle('is-expanded');
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? 'Close case study −' : 'Explore case study +';
+    });
   });
 
-  // Accessible photography lightbox for the 15 named JPG files.
-  const galleryImages = Array.from(document.querySelectorAll('.photo-frame img'));
-  const lightbox = document.querySelector('#photo-lightbox');
-  if (lightbox && galleryImages.length) {
-    const lightboxImage = lightbox.querySelector('img');
-    const caption = lightbox.querySelector('.lightbox-caption');
-    const closeButton = lightbox.querySelector('.lightbox-close');
-    let currentIndex = 0;
-    let previousFocus = null;
-    const showImage = index => {
-      currentIndex = (index + galleryImages.length) % galleryImages.length;
-      const source = galleryImages[currentIndex];
-      lightboxImage.src = source.currentSrc || source.src;
-      lightboxImage.alt = source.alt || `Photography ${currentIndex + 1}`;
-      caption.textContent = source.alt || `PHOTOGRAPHY ${String(currentIndex + 1).padStart(2, '0')}`;
-    };
-    const openLightbox = index => {
-      previousFocus = document.activeElement;
-      showImage(index);
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      closeButton.focus();
-    };
-    const closeLightbox = () => {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-      document.body.style.overflow = '';
-      if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
-    };
-    galleryImages.forEach((img, index) => {
-      const frame = img.closest('.photo-frame');
-      frame.setAttribute('role', 'button');
-      frame.setAttribute('tabindex', '0');
-      frame.setAttribute('aria-label', `Open ${img.alt || 'photograph'} in viewer`);
-      frame.addEventListener('click', () => openLightbox(index));
-      frame.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(index); }
-      });
-    });
-    closeButton.addEventListener('click', closeLightbox);
-    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showImage(currentIndex - 1));
-    lightbox.querySelector('.lightbox-next').addEventListener('click', () => showImage(currentIndex + 1));
-    lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', event => {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (event.key === 'Escape') closeLightbox();
-      if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
-      if (event.key === 'ArrowRight') showImage(currentIndex + 1);
-    });
-  }
+  // Photography lightbox: click a gallery photo, use arrow keys or on-screen controls.
+  const lightbox = document.getElementById('photo-lightbox');
+  const lightboxImage = lightbox?.querySelector('img');
+  const caption = lightbox?.querySelector('figcaption');
+  const photoFrames = [...document.querySelectorAll('.photo-frame img')];
+  const closeButton = lightbox?.querySelector('.lightbox-close');
+  const prevButton = lightbox?.querySelector('.lightbox-prev');
+  const nextButton = lightbox?.querySelector('.lightbox-next');
+  let activePhoto = 0;
+  let lastFocused = null;
 
-  // Set current year automatically in the footer.
-  const footer = document.querySelector('footer .footer-inner > div:first-child');
-  if (footer) footer.textContent = `© ${new Date().getFullYear()} SHARIF ABDULLA AL FAHAD`;
+  const showPhoto = index => {
+    if (!photoFrames.length || !lightboxImage || !caption) return;
+    activePhoto = (index + photoFrames.length) % photoFrames.length;
+    const source = photoFrames[activePhoto];
+    lightboxImage.src = source.currentSrc || source.src;
+    lightboxImage.alt = source.alt || `Portfolio photograph ${activePhoto + 1}`;
+    caption.textContent = source.closest('.photo-frame')?.querySelector('.photo-frame-label')?.textContent || source.alt;
+  };
+  const openPhoto = index => {
+    if (!lightbox) return;
+    lastFocused = document.activeElement;
+    showPhoto(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeButton?.focus();
+  };
+  const closePhoto = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  };
+  photoFrames.forEach((img, index) => {
+    const frame = img.closest('.photo-frame');
+    if (!frame) return;
+    frame.setAttribute('tabindex', '0');
+    frame.setAttribute('role', 'button');
+    frame.setAttribute('aria-label', `Open ${img.alt || `photograph ${index + 1}`}`);
+    frame.addEventListener('click', () => openPhoto(index));
+    frame.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPhoto(index); }
+    });
+  });
+  closeButton?.addEventListener('click', closePhoto);
+  prevButton?.addEventListener('click', () => showPhoto(activePhoto - 1));
+  nextButton?.addEventListener('click', () => showPhoto(activePhoto + 1));
+  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closePhoto(); });
+  document.addEventListener('keydown', event => {
+    if (!lightbox?.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closePhoto();
+    if (event.key === 'ArrowLeft') showPhoto(activePhoto - 1);
+    if (event.key === 'ArrowRight') showPhoto(activePhoto + 1);
+  });
 });
