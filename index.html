@@ -7,7 +7,7 @@
     <title>Sharif Abdulla Al Fahad | Portfolio</title>
 
     <meta name="description"
-          content="Portfolio of Sharif Abdulla Al Fahad — CSE graduate, MIS System Trainer, IoT researcher and technology professional based in Dhaka, Bangladesh.">
+          content="Portfolio of Sharif Abdulla Al Fahad — MIS System Trainer, Technology Professional, IoT Researcher and CSE Graduate.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,1594 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
-            --bg: #101010;
-            --surface: #1b1b1b;
-            --text: #f7f4f1;
-            --muted: #a7a09b;
-            --line: #34302e;
-            --accent: #ff593f;
-            --accent-dark: #ff8b4a;
-
-            --max-width: 1280px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: radial-gradient(ellipse at 10% 0%, rgba(255,65,57,.12), transparent 35%), var(--bg);
-            color: var(--text);
-            font-family: "Manrope", sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(100% - 48px, var(--max-width));
-            margin: auto;
-        }
-
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        .nav {
-            position: fixed;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(100% - 36px, 1180px);
-
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 100px;
-
-            z-index: 1000;
-            box-shadow: 0 10px 40px rgba(0,0,0,.05);
-        }
-
-        .nav-inner {
-            min-height: 68px;
-            padding: 0 24px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .brand {
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: -.04em;
-            white-space: nowrap;
-        }
-
-        .brand span {
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-            font-weight: 400;
-            color: var(--muted);
-            margin-left: 7px;
-            letter-spacing: .08em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 26px;
-        }
-
-        .nav-links a {
-            font-size: 12px;
-            font-weight: 600;
-            color: #b9b1ac;
-            transition: .25s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-cta {
-            background: linear-gradient(110deg, #ff343c, #ff914d);
-            color: white !important;
-            padding: 11px 17px;
-            border-radius: 50px;
-        }
-
-        .nav-cta:hover {
-            background: linear-gradient(110deg, #ff343c, #ff914d);
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 100vh;
-            padding: 135px 0 68px;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.45fr .55fr;
-            gap: 54px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            font-family: "DM Mono", monospace;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: .14em;
-            color: var(--muted);
-            margin-bottom: 28px;
-        }
-
-        .hero-title {
-            font-size: clamp(58px, 8.4vw, 126px);
-            line-height: .89;
-            letter-spacing: -.075em;
-            font-weight: 800;
-            max-width: 1000px;
-        }
-
-        .hero-title .accent {
-            color: var(--accent);
-        }
-
-        .hero-description {
-            margin-top: 38px;
-            max-width: 650px;
-
-            font-size: 18px;
-            line-height: 1.75;
-            color: #c0b9b4;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 34px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 48px;
-            padding: 0 21px;
-
-            border-radius: 100px;
-            border: 1px solid var(--text);
-
-            font-size: 12px;
-            font-weight: 700;
-
-            transition: .25s ease;
-        }
-
-        .button.dark {
-            background: var(--text);
-            color: white;
-        }
-
-        .button.dark:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
-
-        .button.light:hover {
-            background: var(--text);
-            color: white;
-        }
-
-
-        /* =========================================================
-           PHOTO PLACEHOLDER
-        ========================================================= */
-
-        .photo-placeholder {
-            position: relative;
-
-            width: 100%;
-            aspect-ratio: 4 / 5;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e7e5df,
-                    #f7f6f2
-                );
-
-            border: 1px solid #d0cec7;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            overflow: hidden;
-        }
-
-        .photo-placeholder::before {
-            content: "";
-            position: absolute;
-            inset: 15px;
-            border: 1px dashed #b7b5ae;
-        }
-
-        .placeholder-label {
-            position: relative;
-            z-index: 2;
-
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-            letter-spacing: .12em;
-            color: #777;
-            text-transform: uppercase;
-
-            text-align: center;
-        }
-
-        .hero-photo {
-            max-width: 310px;
-            margin-left: auto;
-        }
-
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-
-        /* =========================================================
-           SECTION COMMON
-        ========================================================= */
-
-        section {
-            padding: 130px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .section-header {
-            display: grid;
-            grid-template-columns: .35fr 1fr;
-            gap: 50px;
-            margin-bottom: 75px;
-        }
-
-        .section-number {
-            font-family: "DM Mono", monospace;
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        .section-title {
-            font-size: clamp(42px, 6vw, 78px);
-            line-height: .95;
-            letter-spacing: -.065em;
-            font-weight: 800;
-        }
-
-        .section-intro {
-            margin-top: 25px;
-            max-width: 650px;
-            color: var(--muted);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .large-copy {
-            font-size: clamp(27px, 3.4vw, 48px);
-            line-height: 1.15;
-            letter-spacing: -.045em;
-            font-weight: 600;
-        }
-
-        .about-text {
-            color: #626262;
-            font-size: 15px;
-            line-height: 1.9;
-        }
-
-        .about-text p + p {
-            margin-top: 20px;
-        }
-
-        .highlight-list {
-            margin-top: 45px;
-            border-top: 1px solid var(--line);
-        }
-
-        .highlight {
-            padding: 18px 0;
-            border-bottom: 1px solid var(--line);
-
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
-            font-size: 13px;
-        }
-
-        .highlight span:first-child {
-            font-weight: 700;
-        }
-
-        .highlight span:last-child {
-            color: var(--muted);
-            text-align: right;
-        }
-
-
-        /* =========================================================
-           EXPERIENCE
-        ========================================================= */
-
-        .timeline {
-            border-top: 1px solid var(--line);
-        }
-
-        .experience-item {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 60px;
-
-            padding: 42px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .experience-date {
-            font-family: "DM Mono", monospace;
-            font-size: 11px;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .experience-title {
-            font-size: 28px;
-            line-height: 1.1;
-            letter-spacing: -.035em;
-            font-weight: 800;
-        }
-
-        .experience-company {
-            margin-top: 8px;
-            font-size: 14px;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .experience-description {
-            margin-top: 17px;
-            max-width: 750px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-
-        /* =========================================================
-           PROJECTS
-        ========================================================= */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .project {
-            background: var(--surface);
-            border: 1px solid #dddcd7;
-            padding: 35px;
-            min-height: 350px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            transition: .3s ease;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 60px rgba(0,0,0,.07);
-        }
-
-        .project-doodle {
-            width: 100%;
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin: 8px 0 4px;
-            color: var(--accent);
-            opacity: .88;
-        }
-
-        .project-doodle svg {
-            width: 108px;
-            height: 72px;
-            overflow: visible;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .project:hover .project-doodle {
-            transform: translateY(-2px);
-            opacity: 1;
-        }
-
-        .project-doodle { transition: .3s ease; }
-
-        .project-number {
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-            color: var(--muted);
-        }
-
-        .project h3 {
-            font-size: 31px;
-            line-height: 1;
-            letter-spacing: -.045em;
-            margin-top: 40px;
-        }
-
-        .project p {
-            margin-top: 17px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 28px;
-        }
-
-        .tag {
-            border: 1px solid #d5d4cf;
-            border-radius: 100px;
-            padding: 7px 10px;
-
-            font-family: "DM Mono", monospace;
-            font-size: 9px;
-            color: #666;
-        }
-
-
-        /* =========================================================
-           RESEARCH
-        ========================================================= */
-
-        .research-card {
-            background: linear-gradient(135deg, #241613 0%, #171515 58%, #241310 100%);
-            color: var(--text);
-            padding: clamp(35px, 7vw, 80px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .research-card::after {
-            content: "RESEARCH";
-
-            position: absolute;
-            right: -25px;
-            bottom: -50px;
-
-            font-size: 120px;
-            font-weight: 800;
-            letter-spacing: -.08em;
-
-            opacity: .04;
-        }
-
-        .research-label {
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: .14em;
-        }
-
-        .research-title {
-            max-width: 900px;
-            margin-top: 25px;
-
-            font-size: clamp(32px, 5vw, 67px);
-            line-height: 1;
-            letter-spacing: -.055em;
-        }
-
-        .research-description {
-            max-width: 760px;
-            margin-top: 30px;
-
-            color: #aaa;
-            font-size: 15px;
-            line-height: 1.85;
-        }
-
-        .research-meta {
-            margin-top: 40px;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .research-meta-item {
-            border-top: 1px solid #333;
-            padding-top: 15px;
-        }
-
-        .research-meta-item small {
-            display: block;
-            font-family: "DM Mono", monospace;
-            font-size: 9px;
-            color: #777;
-            margin-bottom: 6px;
-        }
-
-        .research-meta-item strong {
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           EDUCATION
-        ========================================================= */
-
-        .education-list {
-            border-top: 1px solid var(--line);
-        }
-
-        .education-item {
-            display: grid;
-            grid-template-columns: 160px 1fr auto;
-            gap: 40px;
-
-            padding: 35px 0;
-            border-bottom: 1px solid var(--line);
-
-            align-items: center;
-        }
-
-        .education-year {
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-            color: var(--muted);
-        }
-
-        .education-degree {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -.03em;
-        }
-
-        .education-school {
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 5px;
-        }
-
-        .education-result {
-            font-family: "DM Mono", monospace;
-            font-size: 12px;
-            color: var(--accent);
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            border-top: 2px solid var(--text);
-            padding-top: 20px;
-        }
-
-        .skill-card h3 {
-            font-size: 17px;
-            margin-bottom: 15px;
-        }
-
-        .skill-card ul {
-            list-style: none;
-        }
-
-        .skill-card li {
-            font-size: 13px;
-            color: var(--muted);
-            padding: 5px 0;
-        }
-
-
-        /* =========================================================
-           PHOTOGRAPHY — EDITORIAL MONOCHROME GALLERY
-        ========================================================= */
-
-        #photography {
-            background: #ededeb;
-            padding-top: 110px;
-            padding-bottom: 0;
-        }
-
-        #photography .section-header {
-            display: none;
-        }
-
-        .photo-portfolio {
-            width: 100%;
-        }
-
-        .photo-gallery-layout {
-            display: grid;
-            grid-template-columns: 245px 1fr;
-            gap: 18px;
-            align-items: start;
-        }
-
-        .photo-sidebar {
-            position: sticky;
-            top: 105px;
-            background: #fff;
-            padding: 28px 20px 24px;
-            min-height: 560px;
-            border: 1px solid #deddd8;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .photo-sidebar-logo {
-            font-size: 29px;
-            line-height: 1;
-            letter-spacing: .03em;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        .photo-sidebar-subtitle {
-            margin-top: 7px;
-            text-align: center;
-            font-family: "DM Mono", monospace;
-            font-size: 8px;
-            letter-spacing: .18em;
-            color: #777;
-        }
-
-        .photo-sidebar-nav {
-            margin: 34px auto 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .photo-sidebar-nav a {
-            font-family: "DM Mono", monospace;
-            font-size: 9px;
-            letter-spacing: .08em;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: .2s ease;
-        }
-
-        .photo-sidebar-nav a:hover {
-            color: var(--accent);
-        }
-
-        .photo-sidebar-profile {
-            margin-top: auto;
-        }
-
-        .photo-sidebar-profile img {
-            width: 100%;
-            aspect-ratio: 1.25 / 1;
-            object-fit: cover;
-            filter: grayscale(100%);
-            display: block;
-            background: #ddd;
-        }
-
-        .photo-sidebar-copy {
-            margin-top: 12px;
-            font-size: 9px;
-            line-height: 1.7;
-            color: #666;
-            text-align: justify;
-        }
-
-        .photo-sidebar-button {
-            display: block;
-            margin-top: 12px;
-            padding: 8px 10px;
-            background: #111;
-            color: #fff;
-            text-align: center;
-            font-family: "DM Mono", monospace;
-            font-size: 8px;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-        }
-
-        .photo-sidebar-social {
-            display: flex;
-            justify-content: center;
-            gap: 13px;
-            margin-top: 16px;
-            font-family: "DM Mono", monospace;
-            font-size: 9px;
-            color: #444;
-        }
-
-        .photo-main-area {
-            min-width: 0;
-        }
-
-        /* Four reference layouts combined into one responsive photo wall */
-        .photo-collage { background:#11110f; padding:clamp(12px,2.2vw,28px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(12px,2vw,24px); color:#f3f1ec; }
-        .collage-panel { position:relative; min-width:0; aspect-ratio:1/1.08; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); grid-template-rows:repeat(7,minmax(0,1fr)); gap:5px; overflow:hidden; }
-        .collage-tile { position:relative; display:block; min-width:0; min-height:0; overflow:hidden; border-radius:9px; background:#282826; }
-        .collage-tile img { width:100%; height:100%; display:block; object-fit:cover; filter:grayscale(100%); transition:transform .5s ease,filter .35s ease; }
-        .collage-tile:hover img { filter:grayscale(0%); transform:scale(1.05); }
-        .collage-tile::after { content:attr(data-label); position:absolute; left:7px; bottom:7px; padding:4px 6px; background:rgba(0,0,0,.62); color:#fff; font:7px "DM Mono",monospace; opacity:0; transition:opacity .25s ease; }
-        .collage-tile:hover::after { opacity:1; }
-        .collage-panel.layout-one .tile-a { grid-area:1/1/5/4; } .collage-panel.layout-one .tile-b { grid-area:1/4/3/7; } .collage-panel.layout-one .tile-c { grid-area:3/4/5/7; } .collage-panel.layout-one .tile-d { grid-area:5/1/7/3; } .collage-panel.layout-one .tile-e { grid-area:5/3/8/7; } .collage-panel.layout-one .tile-f { grid-area:7/1/8/3; }
-        .collage-panel.layout-two .tile-a { grid-area:1/1/4/3; } .collage-panel.layout-two .tile-b { grid-area:1/3/3/7; } .collage-panel.layout-two .tile-c { grid-area:4/1/6/5; } .collage-panel.layout-two .tile-d { grid-area:3/5/5/7; } .collage-panel.layout-two .tile-e { grid-area:6/1/8/3; } .collage-panel.layout-two .tile-f { grid-area:5/3/8/7; }
-        .collage-panel.layout-three .tile-a { grid-area:1/1/4/3; } .collage-panel.layout-three .tile-b { grid-area:1/3/4/5; } .collage-panel.layout-three .tile-c { grid-area:1/5/3/7; } .collage-panel.layout-three .tile-d { grid-area:3/5/5/7; } .collage-panel.layout-three .tile-e { grid-area:4/1/6/5; } .collage-panel.layout-three .tile-f { grid-area:5/5/8/7; } .collage-panel.layout-three .tile-g { grid-area:6/1/8/5; }
-        .collage-panel.layout-four .tile-a { grid-area:1/1/4/4; } .collage-panel.layout-four .tile-b { grid-area:1/4/3/7; } .collage-panel.layout-four .tile-c { grid-area:3/4/5/7; } .collage-panel.layout-four .tile-d { grid-area:4/1/6/3; } .collage-panel.layout-four .tile-e { grid-area:4/3/6/7; } .collage-panel.layout-four .tile-f { grid-area:6/1/8/3; } .collage-panel.layout-four .tile-g { grid-area:6/3/8/7; }
-        .collage-orbit { position:absolute; z-index:3; width:clamp(64px,9vw,112px); aspect-ratio:1; border:clamp(5px,.75vw,8px) solid #11110f; border-radius:50%; background:#ededeb; overflow:hidden; pointer-events:none; }
-        .collage-orbit img { width:100%; height:100%; display:block; object-fit:cover; border-radius:50%; filter:grayscale(100%); }
-        .layout-one .orbit-one { top:28%; left:25%; } .layout-one .orbit-two { bottom:20%; left:18%; width:clamp(55px,7vw,86px); }
-        .layout-two .orbit-one { top:13%; right:17%; width:clamp(60px,7.5vw,92px); } .layout-two .orbit-two { top:45%; left:30%; }
-        .layout-three .orbit-one { top:26%; left:21%; } .layout-three .orbit-two { bottom:12%; right:26%; width:clamp(55px,7vw,86px); }
-        .layout-four .orbit-one { top:8%; left:31%; width:clamp(60px,7.5vw,92px); } .layout-four .orbit-two { bottom:20%; left:40%; }
-        .collage-caption { position:absolute; z-index:4; max-width:42%; color:#f4f1e9; font-size:clamp(7px,.8vw,10px); line-height:1.5; text-shadow:0 1px 6px rgba(0,0,0,.65); pointer-events:none; }
-        .collage-caption strong { display:block; margin-bottom:4px; font-family:Georgia,serif; font-size:clamp(11px,1.35vw,17px); font-style:italic; font-weight:400; }
-        .layout-two .caption-one { top:27%; right:1%; } .layout-three .caption-one { bottom:1%; left:2%; } .layout-four .caption-one { top:35%; right:1%; }
-
-        .photo-masonry {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            align-items: start;
-        }
-
-        .photo-column {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            min-width: 0;
-        }
-
-        .photo-frame {
-            position: relative;
-            overflow: hidden;
-            background: #1c1c1c;
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            min-height: 100%;
-            display: block;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: transform .55s ease, filter .35s ease;
-        }
-
-        .photo-frame:hover img {
-            transform: scale(1.025);
-            filter: grayscale(0%);
-        }
-
-        .photo-frame.landscape {
-            aspect-ratio: 4 / 3;
-        }
-
-        .photo-frame.portrait {
-            aspect-ratio: 4 / 5;
-        }
-
-        .photo-frame.square {
-            aspect-ratio: 1 / 1;
-        }
-
-        .photo-frame.wide {
-            aspect-ratio: 16 / 8;
-        }
-
-        .photo-frame img {
-            height: 100%;
-        }
-
-        .photo-frame-label {
-            position: absolute;
-            left: 10px;
-            bottom: 9px;
-            padding: 5px 7px;
-            background: rgba(0,0,0,.58);
-            color: #fff;
-            font-family: "DM Mono", monospace;
-            font-size: 7px;
-            letter-spacing: .08em;
-            opacity: 0;
-            transition: opacity .25s ease;
-        }
-
-        .photo-frame:hover .photo-frame-label {
-            opacity: 1;
-        }
-
-        .photo-gallery-heading {
-            padding: 25px 5px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-        }
-
-        .photo-gallery-heading h2 {
-            font-size: clamp(25px, 4vw, 48px);
-            line-height: .95;
-            letter-spacing: -.06em;
-            font-weight: 800;
-        }
-
-        .photo-gallery-heading p {
-            max-width: 390px;
-            color: #777;
-            font-size: 12px;
-            line-height: 1.7;
-            text-align: right;
-        }
-
-        .photo-instagram {
-            margin-top: 65px;
-            background: #fff;
-            padding: 22px 0 26px;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .photo-instagram-title {
-            text-align: center;
-            font-family: "DM Mono", monospace;
-            font-size: 8px;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            color: #b9b1ac;
-        }
-
-        .photo-instagram-grid {
-            width: min(760px, calc(100% - 30px));
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 4px;
-        }
-
-        .photo-instagram-grid a {
-            display: block;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            background: #222;
-        }
-
-        .photo-instagram-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: .3s ease;
-        }
-
-        .photo-instagram-grid a:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.04);
-        }
-
-        .photo-about-footer {
-            margin-top: 0;
-            background: #e4e4e1;
-            padding: 48px 0 28px;
-        }
-
-        .photo-about-footer-grid {
-            display: grid;
-            grid-template-columns: 1.3fr .6fr 1.3fr;
-            gap: 35px;
-            align-items: center;
-        }
-
-        .photo-about-footer-copy {
-            font-size: 10px;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        .photo-about-mark {
-            border-left: 1px solid #aaa;
-            border-right: 1px solid #aaa;
-            text-align: center;
-            padding: 10px 20px;
-        }
-
-        .photo-about-mark strong {
-            display: block;
-            font-size: 27px;
-            font-weight: 400;
-        }
-
-        .photo-about-mark span {
-            font-family: "DM Mono", monospace;
-            font-size: 7px;
-            letter-spacing: .14em;
-            color: #777;
-        }
-
-        .photo-contact-mini {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-family: "DM Mono", monospace;
-            font-size: 8px;
-            color: #b9b1ac;
-        }
-
-        .photo-copyright {
-            margin-top: 28px;
-            padding-top: 12px;
-            border-top: 1px solid #ccc;
-            text-align: center;
-            font-family: "DM Mono", monospace;
-            font-size: 7px;
-            color: #777;
-        }
-
-        @media (max-width: 900px) {
-            .photo-gallery-layout {
-                grid-template-columns: 185px 1fr;
-            }
-
-            .photo-sidebar {
-                min-height: 500px;
-                padding: 22px 14px;
-            }
-
-            .photo-sidebar-logo {
-                font-size: 23px;
-            }
-
-            .photo-about-footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .photo-about-mark {
-                border-left: 0;
-                border-right: 0;
-                border-top: 1px solid #aaa;
-                border-bottom: 1px solid #aaa;
-            }
-
-            .photo-contact-mini {
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 650px) {
-            #photography {
-                padding-top: 80px;
-            }
-
-            .photo-gallery-layout {
-                display: block;
-            }
-
-            .photo-sidebar {
-                position: static;
-                min-height: auto;
-                margin-bottom: 15px;
-            }
-
-            .photo-sidebar-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin: 20px 0;
-            }
-
-            .photo-sidebar-profile {
-                margin-top: 10px;
-            }
-
-            .photo-sidebar-profile img {
-                max-width: 260px;
-                margin: auto;
-            }
-
-            .photo-collage { gap:10px; padding:10px; }
-            .collage-panel { gap:3px; aspect-ratio:1/1.2; }
-            .collage-orbit { width:58px; border-width:5px; }
-            .layout-one .orbit-two, .layout-two .orbit-one, .layout-three .orbit-two, .layout-four .orbit-one { width:48px; }
-            .collage-caption { display:none; }
-            .photo-masonry {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .photo-column:nth-child(3) {
-                grid-column: span 2;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2px;
-            }
-
-            .photo-gallery-heading {
-                display: block;
-            }
-
-            .photo-gallery-heading p {
-                margin-top: 14px;
-                text-align: left;
-            }
-
-            .photo-instagram-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 430px) {
-            .photo-masonry {
-                display: block;
-            }
-
-            .photo-column {
-                margin-bottom: 2px;
-            }
-
-            .photo-column:nth-child(3) {
-                display: flex;
-            }
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact {
-            background: var(--text);
-            color: white;
-            border-top: none;
-        }
-
-        .contact .section-number {
-            color: #777;
-        }
-
-        .contact .section-title {
-            max-width: 850px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-        }
-
-        .contact-copy {
-            color: #999;
-            max-width: 600px;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .contact-links {
-            border-top: 1px solid #333;
-        }
-
-        .contact-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-
-            font-size: 14px;
-        }
-
-        .contact-link span:last-child {
-            color: #777;
-            font-family: "DM Mono", monospace;
-            font-size: 10px;
-        }
-
-        .contact-link:hover {
-            color: #7790ff;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: var(--text);
-            color: #777;
-
-            padding: 25px 0 35px;
-        }
-
-        .footer-inner {
-            border-top: 1px solid #292929;
-            padding-top: 25px;
-
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
-            font-family: "DM Mono", monospace;
-            font-size: 9px;
-        }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 55px;
-            }
-
-            .hero-photo {
-                margin: 0;
-                max-width: 330px;
-            }
-
-            .section-header {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .research-meta {
-                grid-template-columns: 1fr;
-            }
-
-            .education-item {
-                grid-template-columns: 100px 1fr;
-            }
-
-            .education-result {
-                grid-column: 2;
-            }
-        }
-
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: min(100% - 30px, var(--max-width));
-            }
-
-            .nav {
-                top: 10px;
-                width: calc(100% - 20px);
-            }
-
-            .nav-inner {
-                min-height: 58px;
-                padding: 0 17px;
-            }
-
-            .brand span {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 130px;
-            }
-
-            .hero-title {
-                font-size: clamp(52px, 16vw, 80px);
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            section {
-                padding: 64px 0;
-            }
-
-            .about-grid {
-                gap: 35px;
-            }
-
-            .experience-item {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project {
-                min-height: 300px;
-            }
-
-            .education-item {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .education-result {
-                grid-column: auto;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-intro {
-                display: block;
-            }
-
-            .photo-editorial {
-                padding: 8px;
-            }
-
-            .photo-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .photo-tile:first-child {
-                grid-column: 1 / -1;
-                aspect-ratio: 16 / 9;
-            }
-
-            .photo-concept {
-                grid-template-columns: 1fr;
-                padding: 30px 22px;
-            }
-
-            .photo-art-direction {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-art-main {
-                min-height: 430px;
-            }
-
-            .photo-art {
-                min-height: 220px;
-            }
-
-            .footer-inner {
-                display: block;
-            }
-
-            .footer-inner div + div {
-                margin-top: 10px;
-            }
-        }
-
-
-        /* Warm editorial portfolio theme */
-        .hero { position: relative; isolation: isolate; }
-        .hero::before { content:""; position:absolute; z-index:-1; inset:0 0 8% 0; background:linear-gradient(112deg,rgba(255,48,58,.96) 0%,rgba(255,103,62,.92) 52%,rgba(255,151,76,.88) 100%); border-radius:0 0 34px 34px; }
-        .hero .eyebrow,.hero .hero-description { color:rgba(255,255,255,.88); }
-        .hero-title .accent { color:#fff; }
-        .hero .button.dark { background:#171717; border-color:#171717; color:#fff; }
-        .hero .button.light { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.6); }
-        .hero-photo img { border-radius:22px; box-shadow:0 25px 70px rgba(0,0,0,.28); }
-        .nav { background:rgba(17,17,17,.82); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(18px); }
-        .project,.skill-card,.research-card,.education-item,.experience-item { border-color:#34302e; }
-        .button:hover,.project:hover { box-shadow:0 12px 35px rgba(255,82,62,.16); }
-        .cv-button { background:linear-gradient(110deg,#ff343c,#ff914d)!important; color:#fff!important; border-color:transparent!important; }
-        .section-title .accent, .section-number { color:#ff7950; }
-        .photo-collage { border:1px solid #292523; border-radius:20px; overflow:hidden; }
-        .collage-tile { cursor:zoom-in; }
-        .collage-tile:focus-visible { outline:3px solid #ff7950; outline-offset:3px; }
-        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
-
-
-
-        /* THEME POLISH: unify pale sections with the ember / charcoal palette */
-        .nav {
-            background: rgba(24, 21, 20, .88) !important;
-            border-color: rgba(255, 121, 80, .24) !important;
-            box-shadow: 0 12px 38px rgba(0,0,0,.24) !important;
-        }
-        .nav-links a { color: #d3c8c2; }
-        .nav-links a:hover { color: #ff9a72; }
-        .brand span { color: #b5a7a0; }
-        .tag { border-color: #51413b; color: #d4c5bd; background: rgba(255,121,80,.055); }
-        .research-card {
-            background: linear-gradient(135deg, #291714 0%, #1b1716 54%, #302019 100%);
-            color: #f7f1ed;
-            border: 1px solid rgba(255,121,80,.3);
-            border-radius: 22px;
-            box-shadow: 0 24px 70px rgba(0,0,0,.2);
-        }
-        .research-label, .research-meta-item small { color: #ff9a72; }
-        .research-description { color: #d1c2bb; }
-        .research-meta-item { border-top-color: rgba(255,154,114,.32); }
-        .research-meta-item strong { color: #fff5ef; }
-        #photography {
-            background: radial-gradient(ellipse at 90% 0%, rgba(255,89,63,.14), transparent 38%), #121110;
-            color: #f7f4f1;
-            padding-top: 76px;
-            padding-bottom: 42px;
-        }
-        .photo-sidebar {
-            background: linear-gradient(160deg, #211b19, #171514);
-            border: 1px solid #40302b;
-            border-radius: 16px;
-            color: #f7f4f1;
-        }
-        .photo-sidebar-subtitle { color: #ff9a72; }
-        .photo-sidebar-copy { color: #bdb0a9; }
-        .photo-sidebar-button { background: linear-gradient(110deg,#ff343c,#ff914d); border-radius: 3px; }
-        .photo-sidebar-social { color: #c8b8b0; }
-        .photo-sidebar-profile img { background: #302522; border-radius: 8px; }
-        .photo-gallery-heading p { color: #b9aaa2; }
-        .photo-collage.photo-wall {
-            background: linear-gradient(135deg, #241a17, #111110 65%);
-            border: 1px solid #44302a;
-            border-radius: 18px;
-            padding: clamp(10px, 1.6vw, 20px);
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            grid-template-rows: repeat(3, minmax(105px, 13vw));
-            grid-template-areas: "a a b c" "a a d e" "f g h i";
-            gap: 9px;
-            box-shadow: 0 24px 65px rgba(0,0,0,.25);
-        }
-        .photo-wall .collage-tile { border-radius: 7px; border: 1px solid rgba(255,121,80,.16); }
-        .photo-wall .tile-a { grid-area: a; }
-        .photo-wall .tile-b { grid-area: b; }
-        .photo-wall .tile-c { grid-area: c; }
-        .photo-wall .tile-d { grid-area: d; }
-        .photo-wall .tile-e { grid-area: e; }
-        .photo-wall .tile-f { grid-area: f; }
-        .photo-wall .tile-g { grid-area: g; }
-        .photo-wall .tile-h { grid-area: h; }
-        .photo-wall .tile-i { grid-area: i; }
-        .photo-wall .collage-tile img { filter: grayscale(100%) brightness(.84); }
-        .photo-wall .collage-tile:hover img,
-        .photo-wall .collage-tile:focus-visible img { filter: grayscale(0%) brightness(1); transform: scale(1.055); }
-        .photo-wall .collage-tile:focus-visible { outline: 3px solid #ff7950; outline-offset: 2px; }
-        @media (max-width: 760px) {
-            #photography { padding-top: 58px; }
-            .photo-gallery-layout { grid-template-columns: 1fr; }
-            .photo-sidebar { position: relative; top: auto; min-height: auto; }
-            .photo-sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 12px; }
-            .photo-sidebar-profile { display: grid; grid-template-columns: 90px 1fr; gap: 10px; align-items: center; margin-top: 18px; }
-            .photo-sidebar-profile img { grid-row: span 2; aspect-ratio: 1; }
-            .photo-sidebar-copy { margin-top: 0; }
-            .photo-sidebar-button { margin-top: 0; }
-            .photo-collage.photo-wall {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                grid-template-rows: repeat(4, minmax(88px, 27vw));
-                grid-template-areas: "a a b" "a a c" "d e f" "g h i";
-                gap: 6px;
-            }
-            .photo-gallery-heading { align-items: start; flex-direction: column; }
-            .photo-gallery-heading p { text-align: left; }
-        }
-
-    
-/* Final contact and photography palette correction */
-#contact.contact{background:linear-gradient(135deg,#241613 0%,#111110 65%,#29130f 100%)!important;color:#f7f4f1!important;padding-top:70px;padding-bottom:70px;overflow:hidden}
-#contact .section-number{color:#ff8b6a!important} #contact .section-title{color:#fff7f2!important}
-#contact .contact-copy{color:#c8b8b0!important} #contact .contact-links{border-top-color:#49312a!important}
-#contact .contact-link{color:#f7f4f1!important;border-bottom-color:#49312a!important;gap:16px;overflow-wrap:anywhere}
-#contact .contact-link span:last-child{color:#ff9a73!important} #contact .contact-link:hover{color:#ff593f!important}
-#photography{background:#171412!important;color:#f7f4f1!important}
-#photography .photo-sidebar{background:#211b18!important;color:#f7f4f1!important;border-color:#49342c!important}
-#photography .photo-sidebar a{color:#f7f4f1} #photography .photo-sidebar-subtitle,#photography .photo-sidebar-copy,#photography .photo-sidebar-social{color:#b8aaa2!important}
-#photography .photo-sidebar-button{background:linear-gradient(100deg,#ff493c,#ff8d4e)!important;color:#fff!important}
-#photography .photo-copyright{border-top-color:#49342c!important;color:#9c8d84!important}
-#photography .photo-about-footer{color:#f7f4f1!important} #photography .photo-about-footer-copy{color:#b8aaa2!important}
-#photography .photo-about-mark{border-color:#49342c!important} #photography .photo-about-mark span{color:#b8aaa2!important}
-#contact .section-header{margin-bottom:30px}
-@media(max-width:650px){#contact.contact{padding-top:55px;padding-bottom:55px}#contact .contact-grid{gap:25px}#contact .contact-link{align-items:flex-start;flex-direction:column;gap:5px}}
-/* Twelve-photo editorial wall */
-.photo-wall.photo-wall-twelve{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(6,minmax(75px,10vw));grid-template-areas:"a a a b b c" "a a a d d c" "e f f d d g" "e h h i i g" "j h h k l l" "j h h k l l";gap:9px}
-.photo-wall-twelve .tile-a{grid-area:a}.photo-wall-twelve .tile-b{grid-area:b}.photo-wall-twelve .tile-c{grid-area:c}.photo-wall-twelve .tile-d{grid-area:d}.photo-wall-twelve .tile-e{grid-area:e}.photo-wall-twelve .tile-f{grid-area:f}.photo-wall-twelve .tile-g{grid-area:g}.photo-wall-twelve .tile-h{grid-area:h}.photo-wall-twelve .tile-i{grid-area:i}.photo-wall-twelve .tile-j{grid-area:j}.photo-wall-twelve .tile-k{grid-area:k}.photo-wall-twelve .tile-l{grid-area:l}
-.photo-wall-twelve .collage-tile{border:1px solid rgba(255,121,80,.22);border-radius:7px;min-height:0}
-@media(max-width:760px){.photo-wall.photo-wall-twelve{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(6,minmax(78px,22vw));grid-template-areas:"a a b b" "a a c d" "e f f d" "g h h i" "j h h k" "j l l l";gap:6px}}
-
-
-/* MOBILE HERO REFINEMENT — profile photo first, smaller and balanced */
-@media (max-width: 650px) {
-    .hero { min-height: auto !important; padding: 104px 0 48px !important; display: block !important; }
-    .hero-grid { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 25px !important; }
-    .hero-photo { order: -1 !important; width: min(48vw, 178px) !important; max-width: 178px !important; margin: 0 auto !important; }
-    .hero-photo .photo-placeholder { width: 100% !important; aspect-ratio: 4 / 5 !important; height: auto !important; overflow: hidden !important; border-radius: 18px !important; background: #241916 !important; border: 1px solid rgba(255, 126, 82, .38) !important; box-shadow: 0 12px 34px rgba(0, 0, 0, .28) !important; }
-    .hero-photo .photo-placeholder::before { inset: 8px !important; border-color: rgba(255, 155, 112, .45) !important; border-radius: 11px !important; }
-    .hero-photo .photo-placeholder img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center 25% !important; display: block !important; }
-    .hero-grid > div:first-child { width: 100% !important; text-align: center !important; }
-    .hero .eyebrow { margin: 0 auto 16px !important; font-size: 9px !important; line-height: 1.7 !important; letter-spacing: .1em !important; max-width: 290px !important; }
-    .hero-title { font-size: clamp(38px, 10.8vw, 58px) !important; line-height: .98 !important; letter-spacing: -.065em !important; overflow-wrap: anywhere !important; }
-    .hero-description { margin: 20px auto 0 !important; max-width: 440px !important; font-size: 14px !important; line-height: 1.7 !important; text-align: center !important; }
-    .hero-actions { justify-content: center !important; gap: 9px !important; margin-top: 23px !important; }
-    .hero-actions .button { min-height: 42px !important; padding: 0 15px !important; font-size: 12px !important; }
-}
-@media (max-width: 380px) {
-    .hero-photo { width: 145px !important; max-width: 145px !important; }
-    .hero-grid { gap: 21px !important; }
-    .hero-title { font-size: clamp(35px, 10.5vw, 43px) !important; }
-}
-
-
-/* FINAL REFINEMENT: keep the existing theme, contain the profile image, deepen orange */
-:root { --accent-dark: #d97832; }
-.hero::before {
-    background: linear-gradient(112deg, rgba(255,48,58,.96) 0%, rgba(218,79,43,.94) 52%, rgba(190,91,39,.92) 100%) !important;
-}
-.cv-button { background: linear-gradient(110deg, #ff343c, #d97832) !important; }
-.photo-placeholder {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 4 / 5 !important;
-    overflow: hidden !important;
-    border-radius: 20px !important;
-    isolation: isolate;
-}
-.hero-photo {
-    width: min(100%, 290px) !important;
-    max-width: 290px !important;
-    min-width: 0 !important;
-    justify-self: end;
-    margin-left: auto !important;
-    overflow: hidden !important;
-    border-radius: 20px !important;
-}
-.hero-photo .photo-placeholder img {
-    position: absolute !important;
-    inset: 0 !important;
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    object-fit: cover !important;
-    object-position: center 25% !important;
-    border-radius: inherit !important;
-}
-.hero-photo .photo-placeholder::before {
-    z-index: 2 !important;
-    pointer-events: none !important;
-    border-radius: 12px !important;
-    border-color: rgba(217,120,50,.55) !important;
-}
-/* Al Fahad uses the same deep dark tone as the primary heading */
-.hero-title .accent { color: #211815 !important; }
-@media (max-width: 650px) {
-    .hero-grid { min-width: 0 !important; }
-    .hero-photo {
-        width: min(44vw, 160px) !important;
-        max-width: 160px !important;
-        min-width: 0 !important;
-        margin: 0 auto !important;
-        justify-self: center !important;
-        flex: 0 0 auto !important;
-    }
-    .hero-photo .photo-placeholder {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 4 / 5 !important;
-        border-radius: 16px !important;
-    }
-    .hero-photo .photo-placeholder img { object-fit: cover !important; border-radius: inherit !important; }
-}
-@media (max-width: 380px) {
-    .hero-photo { width: 138px !important; max-width: 138px !important; }
-}
-
-
-/* Leadership debate achievements — grouped under one main entry */
-#leadership .leadership-subpoints {
-    margin: 14px 0 0;
-    padding-left: 19px;
-    display: grid;
-    gap: 9px;
-    color: var(--text-secondary, #b8aaa2);
-    font-size: .94em;
-    line-height: 1.7;
-}
-#leadership .leadership-subpoints li { padding-left: 3px; }
-#leadership .leadership-subpoints li::marker { color: #9b4a35; }
-#leadership .leadership-subpoints strong { color: var(--text-primary, #f7f4f1); font-weight: 600; }
-
-</style>
+    <link rel="stylesheet" href="style.css">
+</head>
 </head>
 
 
@@ -1622,7 +36,9 @@
             <span>/ PORTFOLIO</span>
         </a>
 
-        <nav class="nav-links">
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">☰</button>
+
+        <nav class="nav-links" id="primary-navigation">
 
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
@@ -1667,9 +83,10 @@
                 </h1>
 
                 <p class="hero-description">
-                    I work across technology, MIS training, software quality
-                    and IoT research, creating practical solutions that help
-                    people and organizations work better.
+                    Technology professional working across MIS systems,
+                    software, IoT, research and technical training —
+                    with a strong interest in building practical,
+                    data-driven digital solutions.
                 </p>
 
                 <div class="hero-actions">
@@ -1682,10 +99,6 @@
                         Explore Work
                     </a>
 
-                    <a href="Sharif_Abdulla_Al_Fahad_CV.pdf" class="button dark cv-button" download>
-                        Download My CV ↓
-                    </a>
-
                 </div>
 
             </div>
@@ -1693,13 +106,13 @@
 
             <!-- PROFILE PHOTO
                  Put your file beside this HTML file and name it:
-                 profile.JPG
+                 profile.jpg
             -->
 
             <div class="hero-photo">
 
                 <div class="photo-placeholder">
-                    <img src="profile.JPG" alt="Sharif Abdulla Al Fahad">
+                    <img src="profile.jpg" alt="Sharif Abdulla Al Fahad">
                 </div>
 
             </div>
@@ -1729,13 +142,13 @@
             <div>
 
                 <h2 class="section-title">
-                    Technology with<br>
-                    a practical purpose.
+                    A technical profile<br>
+                    with a human side.
                 </h2>
 
                 <p class="section-intro">
-                    Bringing together technology, communication,
-                    research, training and leadership.
+                    A combination of technology, communication,
+                    research, training and leadership experience.
                 </p>
 
             </div>
@@ -1748,8 +161,8 @@
             <div>
 
                 <div class="large-copy">
-                    I use technology and clear communication to solve
-                    practical problems and support people.
+                    I work at the intersection of technology,
+                    people and practical problem solving.
                 </div>
 
             </div>
@@ -1846,17 +259,13 @@
                     </h3>
 
                     <div class="experience-company">
-                        VCMIS Project · UNDP & Bangladesh Government
+                        UNDP & LGED Bangladesh
                     </div>
 
                     <p class="experience-description">
-                        Worked as a trainer on the Village Court Management Information
-                        System (VCMIS), a UNDP-supported project in collaboration with
-                        the Bangladesh Government and development partners. Delivered
-                        training to approximately 404 government officials on system
-                        workflows and digital case management, supported practical
-                        demonstrations, gathered user feedback, and reported software
-                        bugs and improvement opportunities.
+                        Conducting system training, live demonstrations,
+                        technical support and user-oriented guidance for
+                        MIS systems and digital workflows.
                     </p>
 
                 </div>
@@ -1867,8 +276,8 @@
             <div class="experience-item">
 
                 <div class="experience-date">
-                    APR 2026<br>
-                    — 2026
+                    MAR 2026<br>
+                    — JUN 2026
                 </div>
 
                 <div>
@@ -1882,9 +291,9 @@
                     </div>
 
                     <p class="experience-description">
-                        Supported finishing-department operations using the Trackwell
-                        management system, including packing-list tracking and
-                        operational reporting.
+                        Worked within an IT-oriented management trainee
+                        environment with exposure to organizational
+                        technology, systems and operational processes.
                     </p>
 
                 </div>
@@ -1996,8 +405,6 @@
                         PROJECT / 01
                     </div>
 
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M8 62H102M17 62V39L30 29L43 39V62M22 47H27M34 47H39M55 62V19M49 27L55 19L61 27M72 62V34H94V62M77 41H89M77 49H89"/><circle cx="55" cy="12" r="5"/><path d="M68 12H85M80 7L85 12L80 17"/><path d="M7 15C13 10 19 10 25 15M10 21C14 18 18 18 22 21"/></svg></div>
-
                     <h3>
                         Urban Road Pollution Monitoring
                     </h3>
@@ -2031,8 +438,6 @@
                         PROJECT / 02
                     </div>
 
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><rect x="12" y="8" width="60" height="42" rx="3"/><path d="M20 19H61M20 27H50M20 35H56M33 50V58M23 58H44"/><circle cx="79" cy="39" r="15"/><path d="M72 39L77 44L87 33M73 60H99M86 54V60"/></svg></div>
-
                     <h3>
                         Digital MIS Training & Support
                     </h3>
@@ -2064,8 +469,6 @@
                     <div class="project-number">
                         PROJECT / 03
                     </div>
-
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M12 8V61H102"/><path d="M21 50L37 39L49 45L65 25L79 32L96 13"/><circle cx="37" cy="39" r="2.5"/><circle cx="49" cy="45" r="2.5"/><circle cx="65" cy="25" r="2.5"/><circle cx="79" cy="32" r="2.5"/><path d="M87 13H96V22M22 18H38M22 24H32"/></svg></div>
 
                     <h3>
                         Data-driven Analysis
@@ -2099,8 +502,6 @@
                         PROJECT / 04
                     </div>
 
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><circle cx="34" cy="20" r="8"/><circle cx="76" cy="20" r="8"/><path d="M19 49C20 37 26 32 34 32S48 37 49 49M61 49C62 37 68 32 76 32S90 37 91 49"/><path d="M45 16L55 8L65 16M55 8V31M48 27L55 33L62 27M20 60H90"/></svg></div>
-
                     <h3>
                         Research Mentoring
                     </h3>
@@ -2119,69 +520,6 @@
                     <span class="tag">Mentoring</span>
                     <span class="tag">CSE</span>
 
-                </div>
-
-            </article>
-
-
-            <article class="project">
-
-                <div>
-
-                    <div class="project-number">
-                        PROJECT / 05
-                    </div>
-
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M39 38H70L66 61H43Z"/><path d="M55 38V21M55 31C41 31 34 23 34 13C47 13 55 20 55 31ZM55 26C56 14 66 8 78 10C77 22 67 28 55 26Z"/><path d="M16 48C10 40 17 35 17 29M24 48C18 40 25 35 25 29M81 46H99M90 37V55"/><path d="M42 65H67"/></svg></div>
-
-                    <h3>
-                        Automated Plant Watering System
-                    </h3>
-
-                    <p>
-                        An automated plant-care project designed to monitor
-                        soil moisture and activate watering when the plant
-                        needs water, reducing the need for constant manual care.
-                    </p>
-
-                </div>
-
-                <div class="tags">
-                    <span class="tag">Arduino</span>
-                    <span class="tag">Soil Sensor</span>
-                    <span class="tag">Automation</span>
-                </div>
-
-            </article>
-
-
-            <article class="project">
-
-                <div>
-
-                    <div class="project-number">
-                        PROJECT / 06
-                    </div>
-
-                    <div class="project-doodle" aria-hidden="true"><svg viewBox="0 0 110 72"><path d="M12 57C31 57 26 16 49 16S65 56 95 56"/><rect x="40" y="25" width="31" height="22" rx="4"/><circle cx="45" cy="49" r="5"/><circle cx="66" cy="49" r="5"/><circle cx="48" cy="33" r="2"/><circle cx="63" cy="33" r="2"/><path d="M55 25V16M50 16H60M48 9L55 4L62 9"/></svg></div>
-
-                    <h3>
-                        Line-Following Robot (LFR)
-                    </h3>
-
-                    <p>
-                        A robotics project focused on building a robot that
-                        follows a marked path using sensors and control logic.
-                        The project reflects my hands-on interest in robotics
-                        and university-level LFR competitions.
-                    </p>
-
-                </div>
-
-                <div class="tags">
-                    <span class="tag">Robotics</span>
-                    <span class="tag">Sensors</span>
-                    <span class="tag">Arduino</span>
                 </div>
 
             </article>
@@ -2234,10 +572,10 @@
             </h3>
 
             <p class="research-description">
-                My research explores an IoT-based system for monitoring noise,
-                CO₂-related air quality and temperature on urban roads in Dhaka,
-                combining sensor data collection with software analysis and
-                time-series methods.
+                Research focused on combining IoT-based environmental
+                data collection with intelligent software and
+                time-series analysis for urban road pollution
+                monitoring.
             </p>
 
 
@@ -2507,23 +845,6 @@
 
 
 <!-- =========================================================
-     PROFESSIONAL HIGHLIGHTS
-========================================================= -->
-<section id="highlights">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-number">07 / HIGHLIGHTS</div>
-            <div><h2 class="section-title">Professional<br><span class="accent">highlights.</span></h2></div>
-        </div>
-        <div class="projects-grid">
-            <article class="project"><div class="project-number">01</div><h3>Public-sector digitalisation</h3><p>Serving as an MIS System Trainer in the Village Court Management Information System (VCMIS) project, supporting training and practical system adoption in collaboration with UNDP and the Government of Bangladesh.</p></article>
-            <article class="project"><div class="project-number">02</div><h3>International conference research</h3><p>Research on IoT-based monitoring of noise, CO₂ and heat pollution in urban roads, selected for the 2nd Global Cleaner Production Conference 2026 in Sitges, Spain.</p></article>
-            <article class="project"><div class="project-number">03</div><h3>Leadership & communication</h3><p>Former General Secretary of the Primeasia University Sports Club, with additional experience in debating, event coordination, teamwork and public speaking.</p></article>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================================
      LEADERSHIP
 ========================================================= -->
 
@@ -2557,88 +878,116 @@
 
         <div class="timeline">
 
-            <div class="experience-item">
-                <div class="experience-date">UNIVERSITY</div>
-                <div>
-                    <h3 class="experience-title">General Secretary</h3>
-                    <div class="experience-company">Primeasia University Sports Club (PAUSC)</div>
-                    <p class="experience-description">
-                        Progressed through the club from Executive Member to Sub-Organising Secretary,
-                        Joint Secretary and finally General Secretary. Helped organize two central
-                        cricket tournaments, PAUCL Season 1 and Season 2, as part of the organizing
-                        committee. Contributed to the club's development from its early stage into
-                        one of the university's leading student clubs through event planning,
-                        coordination and sustained team involvement.
-                    </p>
-                </div>
-            </div>
-
-            <div class="experience-item debate-career-item">
-                <div class="experience-date">DEBATE</div>
-                <div>
-                    <h3 class="experience-title">Debater, Debate Leader &amp; Judge</h3>
-                    <div class="experience-company">Primeasia University Debating Club (PAUDC) · Television &amp; National Competitions</div>
-                    <p class="experience-description">
-                        Built a sustained record in competitive debating, club leadership, televised debates and debate adjudication.
-                    </p>
-                    <ul class="leadership-subpoints">
-                        <li><strong>Club leadership:</strong> Progressed from Executive Member to Vice President (Logistics), supporting debate event coordination, logistics and club activities.</li>
-                        <li><strong>Televised debating:</strong> Participated in four ATN Bangla television debates, developing public speaking, structured argumentation and on-camera communication.</li>
-                        <li><strong>Competition achievements:</strong> Winner of the Inter-Region Cantonment Debate Fest (2019) and the DUDS Present National Debate Fest (2019).</li>
-                        <li><strong>Judging:</strong> Served as a debate judge for nearly three years, evaluating speakers and arguments in debate competitions.</li>
-                        <li><strong>Recognition and contribution:</strong> Represented Primeasia University in debate activities and contributed to the wider debating community through participation, organization and adjudication.</li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="experience-item">
-                <div class="experience-date">LEADERSHIP</div>
-                <div>
-                    <h3 class="experience-title">Former President</h3>
-                    <div class="experience-company">JDS</div>
-                    <p class="experience-description">
-                        Led the debating society with a focus on fostering intellectual discussion,
-                        strengthening communication skills and building an active debating community.
-                    </p>
+
+                <div class="experience-date">
+                    2022 — 2024
                 </div>
+
+                <div>
+
+                    <h3 class="experience-title">
+                        4-Time Champion
+                    </h3>
+
+                    <div class="experience-company">
+                        ATN Bangla Public Parliament Debate
+                    </div>
+
+                    <p class="experience-description">
+                        Participated in competitive parliamentary
+                        debating and achieved championship success.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="experience-item">
-                <div class="experience-date">UNIVERSITY</div>
-                <div>
-                    <h3 class="experience-title">Founding Member</h3>
-                    <div class="experience-company">Primeasia University Robotics Club</div>
-                    <p class="experience-description">
-                        Was one of the founding members of the club and participated in around six
-                        line-following robot (LFR) competitions hosted by universities across Bangladesh.
-                    </p>
-                </div>
-            </div>
 
             <div class="experience-item">
-                <div class="experience-date">3 YEARS</div>
-                <div>
-                    <h3 class="experience-title">Team Captain · Right-Arm Fast Bowler</h3>
-                    <div class="experience-company">CSE Strikers Cricket Team · Primeasia University</div>
-                    <p class="experience-description">
-                        Captained the departmental cricket team for approximately three years and
-                        played as a right-arm fast bowler for the university's central cricket team,
-                        including participation in national-level tournaments.
-                    </p>
+
+                <div class="experience-date">
+                    UNIVERSITY
                 </div>
+
+                <div>
+
+                    <h3 class="experience-title">
+                        General Secretary
+                    </h3>
+
+                    <div class="experience-company">
+                        PAU Sports Club
+                    </div>
+
+                </div>
+
             </div>
 
+
             <div class="experience-item">
-                <div class="experience-date">NATIONAL</div>
-                <div>
-                    <h3 class="experience-title">Debater & Debate Judge</h3>
-                    <div class="experience-company">National Debate Tournaments</div>
-                    <p class="experience-description">
-                        Participated in a range of national debate tournaments and contributed to
-                        the debating community as a judge for nearly three years.
-                    </p>
+
+                <div class="experience-date">
+                    UNIVERSITY
                 </div>
+
+                <div>
+
+                    <h3 class="experience-title">
+                        Vice President — Logistics
+                    </h3>
+
+                    <div class="experience-company">
+                        PAU Debating Club
+                    </div>
+
+                </div>
+
             </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    UNIVERSITY
+                </div>
+
+                <div>
+
+                    <h3 class="experience-title">
+                        Joint Secretary
+                    </h3>
+
+                    <div class="experience-company">
+                        PAU Robotics Club
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    UNIVERSITY
+                </div>
+
+                <div>
+
+                    <h3 class="experience-title">
+                        Team Captain
+                    </h3>
+
+                    <div class="experience-company">
+                        CSE Strikers Cricket Team
+                    </div>
+
+                </div>
+
+            </div>
+
 
         </div>
 
@@ -2681,10 +1030,10 @@
                     </nav>
 
                     <!-- PROFILE PHOTO
-                         Put profile.JPG beside this HTML file.
+                         Put profile.jpg beside this HTML file.
                     -->
                     <div class="photo-sidebar-profile">
-                        <img src="profile.JPG" alt="Sharif Abdulla Al Fahad">
+                        <img src="profile.jpg" alt="Sharif Abdulla Al Fahad">
 
                         <p class="photo-sidebar-copy">
                             A personal collection of portraits, places,
@@ -2697,9 +1046,11 @@
                         </a>
 
                         <div class="photo-sidebar-social">
-                            <a href="https://www.facebook.com/share/1H2mY39h1U/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-                            <a href="https://www.linkedin.com/in/abdulla-al-fahad-0a2219406/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-                            <a href="mailto:a.a.fahad0008@gmail.com" aria-label="Email">✉</a>
+                            <span>f</span>
+                            <span>ig</span>
+                            <span>in</span>
+                            <span>𝕏</span>
+                            <span>✉</span>
                         </div>
                     </div>
 
@@ -2743,24 +1094,145 @@
                         =====================================================
                     -->
 
-                    <div class="photo-collage photo-wall photo-wall-twelve" aria-label="Twelve-photo editorial photography wall">
-                        <a class="collage-tile tile-a" href="photography-01.JPG" target="_blank" rel="noopener"><img src="photography-01.JPG" alt="Photography archive image 1" loading="lazy"></a>
-                        <a class="collage-tile tile-b" href="photography-02.JPG" target="_blank" rel="noopener"><img src="photography-02.JPG" alt="Photography archive image 2" loading="lazy"></a>
-                        <a class="collage-tile tile-c" href="photography-03.JPG" target="_blank" rel="noopener"><img src="photography-03.JPG" alt="Photography archive image 3" loading="lazy"></a>
-                        <a class="collage-tile tile-d" href="photography-04.JPG" target="_blank" rel="noopener"><img src="photography-04.JPG" alt="Photography archive image 4" loading="lazy"></a>
-                        <a class="collage-tile tile-e" href="photography-05.JPG" target="_blank" rel="noopener"><img src="photography-05.JPG" alt="Photography archive image 5" loading="lazy"></a>
-                        <a class="collage-tile tile-f" href="photography-06.JPG" target="_blank" rel="noopener"><img src="photography-06.JPG" alt="Photography archive image 6" loading="lazy"></a>
-                        <a class="collage-tile tile-g" href="photography-07.JPG" target="_blank" rel="noopener"><img src="photography-07.JPG" alt="Photography archive image 7" loading="lazy"></a>
-                        <a class="collage-tile tile-h" href="photography-08.JPG" target="_blank" rel="noopener"><img src="photography-08.JPG" alt="Photography archive image 8" loading="lazy"></a>
-                        <a class="collage-tile tile-i" href="photography-09.JPG" target="_blank" rel="noopener"><img src="photography-09.JPG" alt="Photography archive image 9" loading="lazy"></a>
-                        <a class="collage-tile tile-j" href="photography-10.JPG" target="_blank" rel="noopener"><img src="photography-10.JPG" alt="Photography archive image 10" loading="lazy"></a>
-                        <a class="collage-tile tile-k" href="photography-11.JPG" target="_blank" rel="noopener"><img src="photography-11.JPG" alt="Photography archive image 11" loading="lazy"></a>
-                        <a class="collage-tile tile-l" href="photography-12.JPG" target="_blank" rel="noopener"><img src="photography-12.JPG" alt="Photography archive image 12" loading="lazy"></a>
+                    <div class="photo-masonry">
+
+
+                        <!-- COLUMN 1 -->
+                        <div class="photo-column">
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-01.JPG" alt="Photography 01">
+                                <span class="photo-frame-label">photography-01.JPG</span>
+                            </div>
+
+                            <div class="photo-frame portrait">
+                                <img src="photography-04.JPG" alt="Photography 04">
+                                <span class="photo-frame-label">photography-04.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-07.JPG" alt="Photography 07">
+                                <span class="photo-frame-label">photography-07.JPG</span>
+                            </div>
+
+                            <div class="photo-frame square">
+                                <img src="photography-10.JPG" alt="Photography 10">
+                                <span class="photo-frame-label">photography-10.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-13.JPG" alt="Photography 13">
+                                <span class="photo-frame-label">photography-13.JPG</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- COLUMN 2 -->
+                        <div class="photo-column">
+
+                            <div class="photo-frame portrait">
+                                <img src="photography-02.JPG" alt="Photography 02">
+                                <span class="photo-frame-label">photography-02.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-05.JPG" alt="Photography 05">
+                                <span class="photo-frame-label">photography-05.JPG</span>
+                            </div>
+
+                            <div class="photo-frame portrait">
+                                <img src="photography-08.JPG" alt="Photography 08">
+                                <span class="photo-frame-label">photography-08.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-11.JPG" alt="Photography 11">
+                                <span class="photo-frame-label">photography-11.JPG</span>
+                            </div>
+
+                            <div class="photo-frame square">
+                                <img src="photography-14.JPG" alt="Photography 14">
+                                <span class="photo-frame-label">photography-14.JPG</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- COLUMN 3 -->
+                        <div class="photo-column">
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-03.JPG" alt="Photography 03">
+                                <span class="photo-frame-label">photography-03.JPG</span>
+                            </div>
+
+                            <div class="photo-frame portrait">
+                                <img src="photography-06.JPG" alt="Photography 06">
+                                <span class="photo-frame-label">photography-06.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-09.JPG" alt="Photography 09">
+                                <span class="photo-frame-label">photography-09.JPG</span>
+                            </div>
+
+                            <div class="photo-frame portrait">
+                                <img src="photography-12.JPG" alt="Photography 12">
+                                <span class="photo-frame-label">photography-12.JPG</span>
+                            </div>
+
+                            <div class="photo-frame landscape">
+                                <img src="photography-15.JPG" alt="Photography 15">
+                                <span class="photo-frame-label">photography-15.JPG</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
+
+
+            <!-- INSTAGRAM-STYLE PHOTO STRIP -->
+            <div class="photo-instagram">
+
+                <div class="photo-instagram-title">
+                    Selected frames / visual archive
+                </div>
+
+                <div class="photo-instagram-grid">
+
+                    <a href="#photography">
+                        <img src="photography-02.JPG" alt="Photography thumbnail 02">
+                    </a>
+
+                    <a href="#photography">
+                        <img src="photography-05.JPG" alt="Photography thumbnail 05">
+                    </a>
+
+                    <a href="#photography">
+                        <img src="photography-08.JPG" alt="Photography thumbnail 08">
+                    </a>
+
+                    <a href="#photography">
+                        <img src="photography-11.JPG" alt="Photography thumbnail 11">
+                    </a>
+
+                    <a href="#photography">
+                        <img src="photography-13.JPG" alt="Photography thumbnail 13">
+                    </a>
+
+                    <a href="#photography">
+                        <img src="photography-15.JPG" alt="Photography thumbnail 15">
+                    </a>
+
+                </div>
+
+            </div>
+
 
             <!-- PHOTOGRAPHY FOOTER -->
             <div class="photo-about-footer">
@@ -2861,9 +1333,8 @@
 
 
                 <a
-                    href="https://www.linkedin.com/in/abdulla-al-fahad-0a2219406/"
+                    href="https://www.linkedin.com/"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="contact-link"
                 >
 
@@ -2879,19 +1350,8 @@
 
 
                 <a
-                    href="https://www.facebook.com/share/1H2mY39h1U/"
+                    href="https://github.com/"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-link"
-                >
-                    <span>Facebook</span>
-                    <span>VIEW PROFILE →</span>
-                </a>
-
-                <a
-                    href="https://github.com/faahaad23"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     class="contact-link"
                 >
 
@@ -2909,7 +1369,6 @@
                 <a
                     href="https://wa.me/8801987434142"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="contact-link"
                 >
 
@@ -2963,6 +1422,15 @@
 </footer>
 
 
+
+<div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Photography viewer" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+  <img src="" alt="">
+  <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
+  <div class="lightbox-caption" aria-live="polite"></div>
+</div>
+<script src="script.js" defer></script>
 
 </body>
 </html>
