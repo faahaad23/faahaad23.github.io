@@ -1,123 +1,143 @@
-/* Portfolio interactions — plain JavaScript, no framework required. */
-document.addEventListener('DOMContentLoaded', () => {
-  const nav = document.querySelector('.nav');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
+(function () {
+  'use strict';
 
-  const closeMenu = () => {
-    if (!navToggle || !navLinks) return;
-    navLinks.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open navigation menu');
-    navToggle.textContent = '☰';
-  };
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-  navToggle?.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-    navToggle.textContent = open ? '×' : '☰';
-  });
-  navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+  /* Year */
+  $('#year').textContent = new Date().getFullYear();
 
-  const updateNav = () => nav?.classList.toggle('scrolled', window.scrollY > 20);
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
-
-  // Reveal sections as they enter the viewport; keep all content visible if unsupported.
-  const revealTargets = document.querySelectorAll('main section, .project, .experience-item, .education-item, .skill-card, .research-card, .photo-frame');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-    revealTargets.forEach(element => element.classList.add('reveal'));
-    revealTargets.forEach(element => observer.observe(element));
+  /* Scroll progress + nav state */
+  var nav = $('#nav'), bar = $('#progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    nav.classList.toggle('scrolled', h.scrollTop > 30);
   }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  // Expandable project case-study summaries.
-  const caseStudies = [
-    'Goal: explore an affordable way to collect road-side noise, CO₂ and temperature readings. Approach: combine IoT sensors, timestamped data collection and analysis-ready CSV records. Next steps can include validation, visualization and carefully evaluated time-series models.',
-    'Goal: help users understand MIS workflows. Work can include structured demonstrations, user guidance, troubleshooting and feedback to make system use clearer and more consistent.',
-    'Goal: turn raw data into understandable findings. Typical workflow: inspect and clean data, explore patterns, visualize important relationships and compare suitable analytical approaches.',
-    'Goal: support research ideas from planning through implementation. Activities can include defining the problem, reviewing relevant work, organizing experiments and communicating technical findings.'
-  ];
-  document.querySelectorAll('.project').forEach((card, index) => {
-    const button = document.createElement('button');
-    button.className = 'project-more';
-    button.type = 'button';
-    button.textContent = 'Explore case study +';
-    button.setAttribute('aria-expanded', 'false');
-    const details = document.createElement('div');
-    details.className = 'project-details';
-    details.textContent = caseStudies[index] || 'Add the project goal, your role, the approach, tools used and outcomes here.';
-    card.append(button, details);
-    button.addEventListener('click', () => {
-      const expanded = card.classList.toggle('is-expanded');
-      button.setAttribute('aria-expanded', String(expanded));
-      button.textContent = expanded ? 'Close case study −' : 'Explore case study +';
+  /* Mobile menu */
+  var btn = $('#menuBtn'), links = $('#navLinks');
+  function closeMenu() { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  btn.addEventListener('click', function () {
+    var open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  $$('#navLinks a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+  /* Active nav link */
+  var navAnchors = $$('#navLinks a:not(.nav-cta)');
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        navAnchors.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section[id]').forEach(function (s) { spy.observe(s); });
+
+  /* Reveal on scroll */
+  var rv = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  $$('.reveal').forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * 70 + 'ms';
+    rv.observe(el);
+  });
+
+  /* Typing effect */
+  var words = ['CSE Graduate', 'MIS System Trainer', 'IoT Researcher', 'Software Tester', 'Public Speaker'];
+  var typed = $('#typed'), wi = 0, ci = words[0].length, del = true;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tick() {
+    var w = words[wi];
+    if (del) { ci--; } else { ci++; }
+    typed.textContent = w.slice(0, ci);
+    var d = del ? 45 : 85;
+    if (!del && ci === w.length) { del = true; d = 1700; }
+    else if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; d = 300; }
+    setTimeout(tick, d);
+  }
+  if (!reduce) setTimeout(tick, 1800);
+
+  /* Counters */
+  var co = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target, to = +el.dataset.count, suf = el.dataset.suffix || '';
+      var start = null, dur = 1400;
+      function step(t) {
+        if (!start) start = t;
+        var p = Math.min((t - start) / dur, 1);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suf : '');
+        if (p < 1) requestAnimationFrame(step);
+      }
+      reduce ? (el.textContent = to + suf) : requestAnimationFrame(step);
+      co.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  $$('[data-count]').forEach(function (el) { co.observe(el); });
+
+  /* Project filters */
+  var filters = $$('.filter'), cards = $$('.card');
+  filters.forEach(function (f) {
+    f.addEventListener('click', function () {
+      filters.forEach(function (x) { x.classList.remove('active'); });
+      f.classList.add('active');
+      var cat = f.dataset.filter;
+      cards.forEach(function (c) {
+        var show = cat === 'all' || c.dataset.cat.split(' ').indexOf(cat) > -1;
+        c.classList.toggle('hide', !show);
+      });
     });
   });
 
-  // Photography lightbox: click a gallery photo, use arrow keys or on-screen controls.
-  const lightbox = document.getElementById('photo-lightbox');
-  const lightboxImage = lightbox?.querySelector('img');
-  const caption = lightbox?.querySelector('figcaption');
-  const photoFrames = [...document.querySelectorAll('.photo-frame img')];
-  const closeButton = lightbox?.querySelector('.lightbox-close');
-  const prevButton = lightbox?.querySelector('.lightbox-prev');
-  const nextButton = lightbox?.querySelector('.lightbox-next');
-  let activePhoto = 0;
-  let lastFocused = null;
+  /* Lightbox */
+  var tiles = $$('#gallery .g'), lb = $('#lightbox'), lbImg = $('#lbImg'), lbCount = $('#lbCount'), idx = 0;
+  function show(i) {
+    idx = (i + tiles.length) % tiles.length;
+    var img = tiles[idx].querySelector('img');
+    lbImg.src = tiles[idx].getAttribute('href');
+    lbImg.alt = img.alt;
+    lbCount.textContent = (idx + 1) + ' / ' + tiles.length;
+  }
+  function open(i) { show(i); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  tiles.forEach(function (t, i) {
+    t.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+    var img = t.querySelector('img');
+    img.addEventListener('error', function () { t.style.display = 'none'; });
+  });
+  $('#lbClose').addEventListener('click', close);
+  $('#lbPrev').addEventListener('click', function () { show(idx - 1); });
+  $('#lbNext').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
 
-  const showPhoto = index => {
-    if (!photoFrames.length || !lightboxImage || !caption) return;
-    activePhoto = (index + photoFrames.length) % photoFrames.length;
-    const source = photoFrames[activePhoto];
-    lightboxImage.src = source.currentSrc || source.src;
-    lightboxImage.alt = source.alt || `Portfolio photograph ${activePhoto + 1}`;
-    caption.textContent = source.closest('.photo-frame')?.querySelector('.photo-frame-label')?.textContent || source.alt;
-  };
-  const openPhoto = index => {
-    if (!lightbox) return;
-    lastFocused = document.activeElement;
-    showPhoto(index);
-    lightbox.classList.add('is-open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    closeButton?.focus();
-  };
-  const closePhoto = () => {
-    if (!lightbox) return;
-    lightbox.classList.remove('is-open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-  };
-  photoFrames.forEach((img, index) => {
-    const frame = img.closest('.photo-frame');
-    if (!frame) return;
-    frame.setAttribute('tabindex', '0');
-    frame.setAttribute('role', 'button');
-    frame.setAttribute('aria-label', `Open ${img.alt || `photograph ${index + 1}`}`);
-    frame.addEventListener('click', () => openPhoto(index));
-    frame.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPhoto(index); }
-    });
+  /* Contact form → opens email client (works on GitHub Pages, no backend needed) */
+  var form = $('#contactForm'), note = $('#formNote');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = $('#fName'), m = $('#fEmail'), t = $('#fMsg'), ok = true;
+    [n, m, t].forEach(function (f) { f.classList.remove('invalid'); });
+    if (!n.value.trim()) { n.classList.add('invalid'); ok = false; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m.value.trim())) { m.classList.add('invalid'); ok = false; }
+    if (!t.value.trim()) { t.classList.add('invalid'); ok = false; }
+    if (!ok) { note.textContent = 'Please fill in all fields correctly.'; return; }
+    var subject = encodeURIComponent('Portfolio enquiry from ' + n.value.trim());
+    var body = encodeURIComponent(t.value.trim() + '\n\n— ' + n.value.trim() + ' (' + m.value.trim() + ')');
+    window.location.href = 'mailto:a.a.fahad0008@gmail.com?subject=' + subject + '&body=' + body;
+    note.textContent = 'Opening your email app…';
   });
-  closeButton?.addEventListener('click', closePhoto);
-  prevButton?.addEventListener('click', () => showPhoto(activePhoto - 1));
-  nextButton?.addEventListener('click', () => showPhoto(activePhoto + 1));
-  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closePhoto(); });
-  document.addEventListener('keydown', event => {
-    if (!lightbox?.classList.contains('is-open')) return;
-    if (event.key === 'Escape') closePhoto();
-    if (event.key === 'ArrowLeft') showPhoto(activePhoto - 1);
-    if (event.key === 'ArrowRight') showPhoto(activePhoto + 1);
-  });
-});
+})();
