@@ -51,20 +51,7 @@
     rv.observe(el);
   });
 
-  /* Typing effect */
-  var words = ['CSE Graduate', 'MIS System Trainer', 'IoT Researcher', 'Software Tester', 'Public Speaker'];
-  var typed = $('#typed'), wi = 0, ci = words[0].length, del = true;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function tick() {
-    var w = words[wi];
-    if (del) { ci--; } else { ci++; }
-    typed.textContent = w.slice(0, ci);
-    var d = del ? 45 : 85;
-    if (!del && ci === w.length) { del = true; d = 1700; }
-    else if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; d = 300; }
-    setTimeout(tick, d);
-  }
-  if (!reduce) setTimeout(tick, 1800);
 
   /* Counters */
   var co = new IntersectionObserver(function (entries) {
